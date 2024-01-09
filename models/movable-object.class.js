@@ -31,7 +31,7 @@ class MovableObject extends drawableObjects{
 
    
 
-    
+    //bastle version
     isColliding(mo) {
         return (
             this.x + this.width - this.offset.right > mo.x + mo.offset.left &&
@@ -40,7 +40,6 @@ class MovableObject extends drawableObjects{
             this.y + this.offset.top < mo.y + mo.height - mo.offset.bottom
         );
     }
-
     
 // abgeschireben video 
     // isColliding(mo){ 

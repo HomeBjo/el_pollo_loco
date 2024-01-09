@@ -8,6 +8,7 @@ class World {
   statusBar = new statusBar();
   throwableObjects = [new throwableObjects()];
   game_music = new Audio('audio/main_music.mp3')
+  chicken_kill = new Audio('audio/chicken_die.mp3')
  
   
 
@@ -31,7 +32,7 @@ class World {
       this.checkCollisions();
       this.checkThrowObjects();
       
-    }, 200); }
+    }, 100); }
 
     checkThrowObjects(){
       if (this.keyboard.D) {
@@ -41,16 +42,30 @@ class World {
       }
     }
 
-    checkCollisions(){
-      this.level.enemies.forEach((enemy)=>{
-        if (this.character.isColliding(enemy)) {
-          this.character.hit();
-          this.statusBar.setpercentage(this.character.energy)
-          console.log('TREFFER TREFFER', this.character.energy)
-        
-        }
+    checkCollisions() {
+      this.level.enemies.forEach((enemy) => {
+          if (this.character.isColliding(enemy)) {
+              if (enemy instanceof Chicken) {  
+                  if (this.character.y + this.character.offset.top < enemy.y && this.character.isAboveGround()) {
+                      console.log('Charakter trifft Chicken von oben!');
+                      this.chicken_kill.play();
+                      enemy.die();
+
+                  } else {
+                      this.character.hit();
+                      this.statusBar.setpercentage(this.character.energy);
+                      console.log('TREFFER TREFFER', this.character.energy);
+                  }
+              } else {
+                  
+                  this.character.hit();
+                  this.statusBar.setpercentage(this.character.energy);
+                  console.log('TREFFER TREFFER', this.character.energy);
+              }
+          }
       });
-    }
+  }
+  
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);

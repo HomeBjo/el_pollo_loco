@@ -5,9 +5,12 @@ class MovableObject extends drawableObjects{
     acceleration = 2.5;
     energy = 100;
     lastHit = 0;
-    offsetY=0;
-    offsetHeight=0;
-    offsetWidth=0;
+    offset = {
+        top:0,
+        bottom:0,
+        left:0,
+        right:0,
+    }
 
     applyGravity(){
         setInterval(() => {
@@ -29,16 +32,32 @@ class MovableObject extends drawableObjects{
    
 
     
+    isColliding(mo) {
+        return (
+            this.x + this.width - this.offset.right > mo.x + mo.offset.left &&
+            this.y + this.height - this.offset.bottom > mo.y + mo.offset.top &&
+            this.x + this.offset.left < mo.x + mo.width - mo.offset.right &&
+            this.y + this.offset.top < mo.y + mo.height - mo.offset.bottom
+        );
+    }
 
-  
+    
+// abgeschireben video 
+    // isColliding(mo){ 
+    //    return this.x + this.width - this.offset.right>mo.x + mo.offset.left &&
+    //     this.y + this.height - this.offset.bottom>mo.y + mo.offset.top &&
+    //     this.x + this.offset.left <  mo.x + mo.width - mo.offset.right &&
+    //     this.y + this.offset.top < mo.y + mo.height - mo.offset.bottom;
+
+    // }
 
     // zusammmen mit gpt 
-    isColliding(obj){ 
-        return (this.otherDirection ? (this.x + this.width) : (this.x + this.width - this.offsetWidth)) >= obj.x &&     // für die spieglung verantwortlich
-        this.x <= (obj.x + obj.width) &&
-        (this.y + this.height) >= obj.y &&
-        this.y <= (obj.y + obj.height);
-    }
+    // isColliding(obj){ 
+    //     return (this.otherDirection ? (this.x + this.width) : (this.x + this.width - this.offsetWidth)) >= obj.x &&     // für die spieglung verantwortlich
+    //     this.x <= (obj.x + obj.width) &&
+    //     (this.y + this.height) >= obj.y &&
+    //     this.y <= (obj.y + obj.height);
+    // }
 
 //     // DA  // Bessere Formel zur Kollisionsberechnung (Genauer)
 //     isColliding (obj) {

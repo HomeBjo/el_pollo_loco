@@ -18,7 +18,6 @@ class World {
     this.draw();
     this.setWorld(); //*1
     this.run();
-    this.game_music.play()  
   }
 
   setWorld() {

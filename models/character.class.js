@@ -50,6 +50,7 @@ class Character extends MovableObject{
 
     world;  //*1
     walking_sound_pepe = new Audio('audio/walking_pepe.mp3')
+    
 
    
 
@@ -61,6 +62,7 @@ class Character extends MovableObject{
         this.loadImages(this.IMAGES_HURT);
         this.applyGravity()
         this.animate();
+        this.walking_sound_pepe.volume = 0.1;
     }
 
     animate(){
@@ -70,12 +72,14 @@ class Character extends MovableObject{
             if(this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x){     //&& this.x < this.world.level.level_end_x)  lvl begrenzung anch rechts   dafür lvl in world eingebunden *2
              this.moveRight();
              this.walking_sound_pepe.play();
+             this.world.game_music.play(); 
              this.otherDirection = false;
             }
 
             if(this.world.keyboard.LEFT && this.x >0){     // &&thisx 0 für begrenzung 
                 this.moveLeft();
                 this.walking_sound_pepe.play()
+                this.world.game_music.play(); 
                 this.otherDirection = true;
             }
 

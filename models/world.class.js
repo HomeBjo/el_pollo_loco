@@ -7,6 +7,8 @@ class World {
   camer_x =0;
   statusBar = new statusBar();
   throwableObjects = [new throwableObjects()];
+  game_music = new Audio('audio/main_music.mp3')
+ 
   
 
   constructor(canvas, keyboard) {
@@ -16,6 +18,7 @@ class World {
     this.draw();
     this.setWorld(); //*1
     this.run();
+    this.game_music.play()  
   }
 
   setWorld() {

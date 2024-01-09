@@ -32,9 +32,9 @@ class MovableObject extends drawableObjects{
 
   
 
-    // zusammmen mit gpt
+    // zusammmen mit gpt 
     isColliding(obj){ 
-        return (this.otherDirection ? (this.x + this.width) : (this.x + this.width - this.offsetWidth)) >= obj.x &&
+        return (this.otherDirection ? (this.x + this.width) : (this.x + this.width - this.offsetWidth)) >= obj.x &&     // für die spieglung verantwortlich
         this.x <= (obj.x + obj.width) &&
         (this.y + this.height) >= obj.y &&
         this.y <= (obj.y + obj.height);

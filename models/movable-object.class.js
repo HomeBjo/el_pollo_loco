@@ -16,7 +16,12 @@ class MovableObject extends drawableObjects{
         setInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {                         // die abfrage das es wann es ausgelöst wird entweder wen 
             this.y-=this.speedY;
-            this.speedY -= this.acceleration; }                                           //also in der funktion wird beschrieben das er immer fällt gravity halt  aber wir fangen das ab mit der if also die setzt nur ein wen er darüber ist usw
+            this.speedY -= this.acceleration; 
+        }                                           //also in der funktion wird beschrieben das er immer fällt gravity halt  aber wir fangen das ab mit der if also die setzt nur ein wen er darüber ist usw
+        if (!this.isAboveGround()) {
+            this.y = 125;                                                 // damit ich nach den springen die selbe boden höhe wieder habe
+            this.speedY = 0;                                             
+        }
         }, 1000 / 25);
     }
 

@@ -50,13 +50,14 @@ class World {
                       console.log('Charakter trifft Chicken von oben!');
                       this.chicken_kill.play();
                       enemy.die();
+                      this.character.jump(10);
 
                   } else {
                       this.character.hit();
                       this.statusBar.setpercentage(this.character.energy);
-                      console.log('TREFFER TREFFER', this.character.energy);
+                      console.log('TREFFER TREFFER', this.character.energy,level1);
                   }
-              } else {
+              } else {  
                   
                   this.character.hit();
                   this.statusBar.setpercentage(this.character.energy);

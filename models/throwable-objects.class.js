@@ -1,5 +1,10 @@
 class throwableObjects extends MovableObject {
-
+    //  offset = {
+    //     top:3,
+    //     bottom:3,
+    //     left:3,
+    //     right:3,
+    // }
     constructor(x, y, otherDirection) {
         super().loadImage('img/6_salsa_bottle/salsa_bottle.png');
         
@@ -8,6 +13,7 @@ class throwableObjects extends MovableObject {
         this.otherDirection = otherDirection;
         this.height =60;
         this.width =50;
+    
         this.trow()
 
 

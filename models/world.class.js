@@ -5,7 +5,9 @@ class World {
   ctx;
   keyboard;
   camer_x =0;
-  statusBar = new statusBar();
+  StatusHealthBar = new StatusHealthBar();
+  StatusBottleBar = new StatusBottleBar();
+  StatusCoinBar = new StatusCoinBar();
   throwableObjects = [new throwableObjects()];
   game_music = new Audio('audio/main_music.mp3');
   chicken_kill = new Audio('audio/chicken_die.mp3');
@@ -61,13 +63,13 @@ class World {
 
                   } else {
                       this.character.hit();
-                      this.statusBar.setpercentage(this.character.energy);
+                      this.StatusHealthBar.setpercentage(this.character.energy);
                       console.log('TREFFER TREFFER', this.character.energy,level1);
                   }
               } else {  
                   
                   this.character.hit();
-                  this.statusBar.setpercentage(this.character.energy);
+                  this.StatusHealthBar.setpercentage(this.character.energy);
                   console.log('TREFFER TREFFER', this.character.energy);
               }
           }
@@ -83,7 +85,9 @@ class World {
    
 
     this.ctx.translate(-this.camer_x, 0);     // back----- space for fix objects 
-    this.addToMap(this.statusBar); 
+    this.addToMap(this.StatusHealthBar); 
+    this.addToMap(this.StatusBottleBar); 
+    this.addToMap(this.StatusCoinBar); 
     this.ctx.translate(this.camer_x, 0);    // Forwards
 
 

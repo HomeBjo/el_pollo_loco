@@ -92,7 +92,7 @@ class Character extends MovableObject{
             }
 
 
-            this.world.camer_x= -this.x + 100;    // +100 für position pepe 
+            this.world.camer_x= -this.x + 150;    // +100 für position pepe 
             
             
         }, 1000 / 60);

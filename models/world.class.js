@@ -9,6 +9,8 @@ class World {
   throwableObjects = [new throwableObjects()];
   game_music = new Audio('audio/main_music.mp3')
   chicken_kill = new Audio('audio/chicken_die.mp3')
+  intro_endboss = new Audio('audio/endboss_start.mp3')
+  introEndbossPlayed = false;
  
   
 
@@ -31,7 +33,7 @@ class World {
       
       this.checkCollisions();
       this.checkThrowObjects();
-      
+      this.checkCharacterPosition()
     }, 100); }
 
     checkThrowObjects(){
@@ -128,4 +130,12 @@ class World {
     mo.x = mo.x * -1;
     this.ctx.restore();
   }
+  checkCharacterPosition() {
+    if (this.character.x >= 1000 && !this.introEndbossPlayed) {
+        this.intro_endboss.play();
+        this.introEndbossPlayed = true;  // Setze den Status auf "abgespielt"
+    }
+}
+
+// ...
 }

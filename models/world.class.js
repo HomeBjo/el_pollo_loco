@@ -7,10 +7,11 @@ class World {
   camer_x =0;
   statusBar = new statusBar();
   throwableObjects = [new throwableObjects()];
-  game_music = new Audio('audio/main_music.mp3')
-  chicken_kill = new Audio('audio/chicken_die.mp3')
-  intro_endboss = new Audio('audio/endboss_start.mp3')
-  introEndbossPlayed = false;
+  game_music = new Audio('audio/main_music.mp3');
+  chicken_kill = new Audio('audio/chicken_die.mp3');
+  intro_endboss = new Audio('audio/endboss_start.mp3');
+  trow_bottle = new Audio('audio/throwing_bottle.mp3');
+  intro_endboss_played = false;
  
   
 
@@ -38,8 +39,12 @@ class World {
 
     checkThrowObjects(){
       if (this.keyboard.D) {
-        let bottle = new throwableObjects(this.character.x + 100,this.character.y + 100);      // bottle wurf position
+        const startX = this.character.otherDirection ? this.character.x - 30 : this.character.x + 100;   // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
+        const startY = this.character.y + 100;
+        let bottle = new throwableObjects(startX, startY, this.character.otherDirection);      // bottle wurf position
         this.throwableObjects.push(bottle)
+        this.trow_bottle.play();
+
         
       }
     }
@@ -131,11 +136,9 @@ class World {
     this.ctx.restore();
   }
   checkCharacterPosition() {
-    if (this.character.x >= 1000 && !this.introEndbossPlayed) {
+    if (this.character.x >= 1000 && !this.intro_endboss_played) {  //nach dem && => introEndbossPlayed zuerst auf false und dan in der funktion auf true damit nur einmal abgespielt wird 
         this.intro_endboss.play();
-        this.introEndbossPlayed = true;  // Setze den Status auf "abgespielt"
+        this.intro_endboss_played = true;  //  die variable erst auf false setzen und anch dem play auf true damit es nur einmal abspielt
     }
 }
-
-// ...
 }

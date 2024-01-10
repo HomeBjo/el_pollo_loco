@@ -25,7 +25,7 @@ class drawableObjects {                       // im video ell pollo loco 2 mathe
          ctx.rect(this.x, this.y, this.width, this.height);
          ctx.stroke();
         }
-        if (this instanceof Character || this instanceof Chicken || this instanceof Endboss || this instanceof throwableObjects) {
+        if (this instanceof Character || this instanceof Chicken || this instanceof Endboss || this instanceof throwableObjects || this instanceof Coins || this instanceof Bottles) {
             ctx.beginPath();
             ctx.lineWidth = "5";
             ctx.strokeStyle = "red";

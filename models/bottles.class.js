@@ -6,8 +6,8 @@ class Bottles extends MovableObject {
   offset = {
     top: 1,
     bottom: 1,
-    left: 1,
-    right: 1,
+    left: 15,
+    right: 15,
   };
   isDead = false;
 

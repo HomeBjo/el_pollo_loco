@@ -4,10 +4,10 @@ class Coins extends MovableObject {
   x = 90;
   y = 90;
   offset = {
-    top: 1,
+    top: 4,
     bottom: 1,
-    left: 1,
-    right: 1,
+    left: 10,
+    right: 10,
   };
   isDead = false;
 

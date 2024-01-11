@@ -14,6 +14,7 @@ class World {
   intro_endboss = new Audio("audio/endboss_start.mp3");
   trow_bottle = new Audio("audio/throwing_bottle.mp3");
   intro_endboss_played = false;
+  
 
   constructor(canvas, keyboard) {
     this.ctx = canvas.getContext("2d");
@@ -54,7 +55,7 @@ class World {
   }
 
   checkCollisions() {
-    this.level.enemies.forEach((enemy) => {
+    this.level.enemies.forEach((enemy,coins,bottles) => {
       if (this.character.isColliding(enemy)) {
         if (enemy instanceof Chicken) {
           if (
@@ -83,6 +84,11 @@ class World {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.camer_x, 0); // kamera position
     this.addObjectsToMap(this.level.backgroundObject);
+     // Anpassung der x-Position der Hintergründe
+    // this.level.backgroundObject.forEach((background) => {
+    //     background.moveWithParallax(this.character.speed);
+    //     this.addToMap(background);
+    // });
 
     this.ctx.translate(-this.camer_x, 0); // back----- space for fix objects
     this.addToMap(this.StatusHealthBar);

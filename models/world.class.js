@@ -83,12 +83,14 @@ class World {
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.camer_x, 0); // kamera position
-    this.addObjectsToMap(this.level.backgroundObject);
-     // Anpassung der x-Position der Hintergründe
-    // this.level.backgroundObject.forEach((background) => {
-    //     background.moveWithParallax(this.character.speed);
-    //     this.addToMap(background);
-    // });
+    // this.addObjectsToMap(this.level.backgroundObject);
+    
+    
+    //Anpassung der x-Position der Hintergründe
+    this.level.backgroundObject.forEach((background) => {
+        background.moveWithParallax(this.character.x, this.character.otherDirection);
+        this.addToMap(background);
+    });
 
     this.ctx.translate(-this.camer_x, 0); // back----- space for fix objects
     this.addToMap(this.StatusHealthBar);

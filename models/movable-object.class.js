@@ -1,4 +1,5 @@
 class MovableObject extends drawableObjects{
+    currentImage2 = 0;
     speed = 0.15;
     otherDirection = false;
     speedY = 0 ;
@@ -120,4 +121,11 @@ class MovableObject extends drawableObjects{
         this.currentImage++;
 
     }
-}
+    
+    playAnimationOnce(images) {
+        if (this.currentImage2 < images.length) {
+            let path = images[this.currentImage2];
+            this.img = this.imageChace[path];
+            this.currentImage2++;
+        }
+    }}

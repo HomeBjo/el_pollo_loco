@@ -14,7 +14,7 @@ class BackgroundObject extends MovableObject {
         // prüfen ob der charackter bewegt wird 
         if (characterX !== this.previousCharacterX) {
             // bei links ode rechts - oder +
-            if (characterX > 50) {   // auseinander reisen verhindert
+            if (characterX > 60) {   // auseinander reisen verhindert
             this.x -= otherDirection ? -this.speed : this.speed;
         }
 

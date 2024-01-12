@@ -147,6 +147,7 @@ class World {
     mo.x = mo.x * -1;
     this.ctx.restore();
   }
+  
   checkCharacterPosition() {
     if (this.character.x >= 1000 && !this.intro_endboss_played) {
       //nach dem && => introEndbossPlayed zuerst auf false und dan in der funktion auf true damit nur einmal abgespielt wird

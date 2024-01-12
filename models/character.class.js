@@ -1,7 +1,7 @@
 class Character extends MovableObject{
     width =110;
     height =300;
-    speed = 10;
+    speed = 7;
     y=130;
     x=70;
     offset = {
@@ -97,10 +97,11 @@ class Character extends MovableObject{
             
         }, 1000 / 60);
 
-        setInterval(()=>{
+        this.characterAnimationInterval = setInterval(()=>{
 
             if (this.isDead()) {
-               this.playAnimation(this.IMAGES_DEAD)
+               this.playAnimationOnce(this.IMAGES_DEAD)
+            //    clearInterval(this.characterAnimationInterval);
             } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT) 
             } else if (this.isAboveGround()) {

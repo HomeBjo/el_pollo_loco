@@ -13,6 +13,7 @@ class World {
   chicken_kill = new Audio("audio/chicken_die.mp3");
   intro_endboss = new Audio("audio/endboss_start.mp3");
   trow_bottle = new Audio("audio/throwing_bottle.mp3");
+  pain = new Audio("audio/pain.mp3");
   intro_endboss_played = false;
   
 
@@ -67,11 +68,13 @@ class World {
           } else {
             this.character.hit();
             this.StatusHealthBar.setpercentage(this.character.energy);
+            this.pain.play();
             // console.log("TREFFER TREFFER", this.character.energy, level1);
           }
         } else {
           this.character.hit();
           this.StatusHealthBar.setpercentage(this.character.energy);
+          this.pain.play();
           console.log("TREFFER TREFFER", this.character.energy);
         }
       }

@@ -40,9 +40,7 @@ class World {
 
   checkThrowObjects() {
     if (this.keyboard.D) {
-      const startX = this.character.otherDirection
-        ? this.character.x - 30
-        : this.character.x + 100; // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
+      const startX = this.character.otherDirection ? this.character.x - 30 : this.character.x + 100; // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
       const startY = this.character.y + 100;
       let bottle = new throwableObjects(
         startX,

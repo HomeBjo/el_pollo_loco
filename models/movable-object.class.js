@@ -36,7 +36,7 @@ class MovableObject extends drawableObjects{
 
    
 
-    //bastle version
+    //beta version
     isColliding(mo) {
         return (
             this.x + this.width - this.offset.right > mo.x + mo.offset.left &&
@@ -72,18 +72,6 @@ class MovableObject extends drawableObjects{
 
 // }
     
-    
-    
-    
-      // das hier soll besser sein funzt aber nicht ich denke weil x und y gros ist und weil wohl die offsetY nicht def !
-
-    // isColliding (mo) {
-    //     return this.x + this.width-this.offsetWidth > mo.x &&
-    //     this.y-this.offsetY + this.height-this.offsetHeight > mo.y &&
-    //     this.x  < mo.x &&
-    //     this.y-this.offsetY < mo.y + mo.height 
-    // }
-
     hit(){
         this.energy-=5;
         if (this.energy < 0) {

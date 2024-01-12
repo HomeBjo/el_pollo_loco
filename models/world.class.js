@@ -69,7 +69,7 @@ class World {
           } else {
             this.character.hit();
             this.StatusHealthBar.setpercentage(this.character.energy);
-            console.log("TREFFER TREFFER", this.character.energy, level1);
+            // console.log("TREFFER TREFFER", this.character.energy, level1);
           }
         } else {
           this.character.hit();

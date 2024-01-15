@@ -8,14 +8,14 @@ class World {
   StatusHealthBar = new StatusHealthBar();
   StatusBottleBar = new StatusBottleBar();
   StatusCoinBar = new StatusCoinBar();
-  throwableObjects = [new throwableObjects()];
+  throwableObjects = [];   //new throwableObjects(100,20)  drin stehen würde würde es sofort eine flasche werfen 
+  thrownBottles = 0;
   game_music = new Audio("audio/main_music.mp3");
   chicken_kill = new Audio("audio/chicken_die.mp3");
   intro_endboss = new Audio("audio/endboss_start.mp3");
   trow_bottle = new Audio("audio/throwing_bottle.mp3");
   pain = new Audio("audio/pain.mp3");
   intro_endboss_played = false;
-  
 
   constructor(canvas, keyboard) {
     this.ctx = canvas.getContext("2d");
@@ -40,38 +40,70 @@ class World {
   }
 
   checkThrowObjects() {
-    if (this.keyboard.D) {
-      const startX = this.character.otherDirection ? this.character.x - 30 : this.character.x + 100; // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
+    if (this.keyboard.D && this.thrownBottles > 0) {
+      const startX = this.character.otherDirection
+        ? this.character.x - 30
+        : this.character.x + 100; // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
       const startY = this.character.y + 100;
       let bottle = new throwableObjects(
         startX,
         startY,
         this.character.otherDirection
       ); // bottle wurf position
-      this.throwableObjects.push(bottle);
+      this.throwableObjects.push(bottle); 
       this.trow_bottle.play();
+
+      // Reduziere die Anzahl der geworfenen Flaschen
+      this.thrownBottles--;
+      this.StatusBottleBar.setpercentage(this.thrownBottles)
     }
   }
 
+
   checkCollisions() {
-    this.level.enemies.forEach((enemy,coins,bottles) => {
-      if (this.character.isColliding(enemy)) {
-        if (enemy instanceof Chicken) {
+    let worldObjects = [
+      ...this.level.enemies,
+      ...this.level.coins,
+      ...this.level.bottles,
+    ];
+
+    worldObjects.forEach((obj,index) => {
+      if (this.character.isColliding(obj)) {
+        if (obj instanceof Chicken) {
           if (
-            this.character.y + this.character.offset.top < enemy.y &&
-            this.character.isAboveGround()
+            this.character.y + this.character.offset.top < obj.y &&
+            this.character.isAboveGround() //&&
+            // this.character.y > -100.6  // soll eig eine höhen abfrage sein damit der char eine gewisse höhe erreichen muss CALL FRAGEN
           ) {
             console.log("Charakter trifft Chicken von oben!");
             this.chicken_kill.play();
-            enemy.die();
+            obj.die();
             this.character.jump(10);
           } else {
+            //von den chicken dmg
             this.character.hit();
             this.StatusHealthBar.setpercentage(this.character.energy);
             this.pain.play();
-            // console.log("TREFFER TREFFER", this.character.energy, level1);
+            console.log("TREFFER TREFFER", this.character.energy);
           }
+        } else if (obj instanceof Coins) {
+          // Kollision mit Coin
+          console.log("Charakter sammelt Münze!");
+          
+        } else if (obj instanceof Bottles) {
+          this.thrownBottles++;
+          this.StatusBottleBar.setpercentage(this.thrownBottles)
+          const indexOfBottle = this.level.bottles.indexOf(obj);
+          if (indexOfBottle !== -1) {
+              this.level.bottles.splice(indexOfBottle, 1);
+          }
+          
+        
+          
+          console.log("Charakter trifft Flasche!", obj);
+          
         } else {
+          // von allen anderen dmg
           this.character.hit();
           this.StatusHealthBar.setpercentage(this.character.energy);
           this.pain.play();
@@ -85,12 +117,14 @@ class World {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.camer_x, 0); // kamera position
     // this.addObjectsToMap(this.level.backgroundObject);
-    
-    
+
     //Anpassung der x-Position der Hintergründe
     this.level.backgroundObject.forEach((background) => {
-        background.moveWithParallax(this.character.x, this.character.otherDirection);
-        this.addToMap(background);
+      background.moveWithParallax(
+        this.character.x,
+        this.character.otherDirection
+      );
+      this.addToMap(background);
     });
 
     this.ctx.translate(-this.camer_x, 0); // back----- space for fix objects
@@ -147,7 +181,7 @@ class World {
     mo.x = mo.x * -1;
     this.ctx.restore();
   }
-  
+
   checkCharacterPosition() {
     if (this.character.x >= 1000 && !this.intro_endboss_played) {
       //nach dem && => introEndbossPlayed zuerst auf false und dan in der funktion auf true damit nur einmal abgespielt wird

@@ -8,8 +8,9 @@ class World {
   StatusHealthBar = new StatusHealthBar();
   StatusBottleBar = new StatusBottleBar();
   StatusCoinBar = new StatusCoinBar();
-  throwableObjects = [];   //new throwableObjects(100,20)  drin stehen würde würde es sofort eine flasche werfen 
+  throwableObjects = []; //new throwableObjects(100,20)  drin stehen würde würde es sofort eine flasche werfen
   thrownBottles = 0;
+  thrownCoins = 0;
   game_music = new Audio("audio/main_music.mp3");
   chicken_kill = new Audio("audio/chicken_die.mp3");
   intro_endboss = new Audio("audio/endboss_start.mp3");
@@ -50,24 +51,23 @@ class World {
         startY,
         this.character.otherDirection
       ); // bottle wurf position
-      this.throwableObjects.push(bottle); 
+      this.throwableObjects.push(bottle);
       this.trow_bottle.play();
 
       // Reduziere die Anzahl der geworfenen Flaschen
       this.thrownBottles--;
-      this.StatusBottleBar.setpercentage(this.thrownBottles)
+      this.StatusBottleBar.setpercentage(this.thrownBottles);
     }
   }
 
-
   checkCollisions() {
     let worldObjects = [
-      ...this.level.enemies,
+      ...this.level.enemies,   // Spread Operator...   =  worldObjects.concat verbindet zwei oder mehrere arrays zu einem  
       ...this.level.coins,
       ...this.level.bottles,
     ];
 
-    worldObjects.forEach((obj,index) => {
+    worldObjects.forEach((obj) => {
       if (this.character.isColliding(obj)) {
         if (obj instanceof Chicken) {
           if (
@@ -87,21 +87,22 @@ class World {
             console.log("TREFFER TREFFER", this.character.energy);
           }
         } else if (obj instanceof Coins) {
-          // Kollision mit Coin
+          this.thrownCoins++;
+          this.StatusCoinBar.setpercentage(this.thrownCoins);
+          const indexOfCoins = this.level.coins.indexOf(obj);
+          if (indexOfCoins !== -1) {
+            this.level.coins.splice(indexOfCoins, 1);
+          }
           console.log("Charakter sammelt Münze!");
-          
         } else if (obj instanceof Bottles) {
           this.thrownBottles++;
-          this.StatusBottleBar.setpercentage(this.thrownBottles)
+          this.StatusBottleBar.setpercentage(this.thrownBottles);
           const indexOfBottle = this.level.bottles.indexOf(obj);
           if (indexOfBottle !== -1) {
-              this.level.bottles.splice(indexOfBottle, 1);
+            this.level.bottles.splice(indexOfBottle, 1);
           }
-          
-        
-          
+
           console.log("Charakter trifft Flasche!", obj);
-          
         } else {
           // von allen anderen dmg
           this.character.hit();

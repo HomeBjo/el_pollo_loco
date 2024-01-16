@@ -42,6 +42,10 @@ class Endboss extends MovableObject{
         this.animate();
     }
 
+    test(lala){
+        this.lala=lala
+    }
+
     animate() {
         this.enbossAnimationInterval = setInterval(() => {
             if (this.isDead()) {
@@ -52,11 +56,10 @@ class Endboss extends MovableObject{
                 });
             } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
-            } else {
-               {
-                    this.playAnimation(this.IMAGES_START);
-                }
+            } else if (this.lala==1) {
+                this.playAnimationOnce(this.IMAGES_START);
             }
+
         }, 200);
     }
 }

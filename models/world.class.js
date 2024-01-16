@@ -213,6 +213,9 @@ class World {
       //nach dem && => introEndbossPlayed zuerst auf false und dan in der funktion auf true damit nur einmal abgespielt wird
       this.intro_endboss.play();
       this.intro_endboss_played = true; //  die variable erst auf false setzen und anch dem play auf true damit es nur einmal abspielt
+    } if (this.character.x >= 2000)  {
+      { this.level.enemies[3].test(1);
+
     }
   }
-}
+}}

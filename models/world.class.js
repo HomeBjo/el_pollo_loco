@@ -9,10 +9,10 @@ class World {
   StatusBottleBar = new StatusBottleBar();
   StatusCoinBar = new StatusCoinBar();
   throwableObjects = []; //new throwableObjects(100,20)  drin stehen würde würde es sofort eine flasche werfen
-  thrownBottles = 0;
+  thrownBottles = 20;
   thrownCoins = 0;
   game_music = new Audio("audio/main_music.mp3");
-  chicken_kill = new Audio("audio/chicken_die.mp3");
+  chicken_kill_sound = new Audio("audio/chicken_die.mp3");
   intro_endboss = new Audio("audio/endboss_start.mp3");
   trow_bottle = new Audio("audio/throwing_bottle.mp3");
   pain = new Audio("audio/pain.mp3");
@@ -37,6 +37,7 @@ class World {
       this.checkCollisions();
       this.checkThrowObjects();
       this.checkCharacterPosition();
+      this.checkBottleCollisions();
     }, 100);
   }
 
@@ -75,8 +76,8 @@ class World {
             this.character.isAboveGround() //&&
             // this.character.y > -100.6  // soll eig eine höhen abfrage sein damit der char eine gewisse höhe erreichen muss CALL FRAGEN
           ) {
-            console.log("Charakter trifft Chicken von oben!");
-            this.chicken_kill.play();
+            
+            this.chicken_kill_sound.play();
             obj.die();
             this.character.jump(10);
           } else {
@@ -84,7 +85,7 @@ class World {
             this.character.hit();
             this.StatusHealthBar.setpercentage(this.character.energy);
             this.pain.play();
-            console.log("TREFFER TREFFER", this.character.energy);
+            
           }
         } else if (obj instanceof Coins) {
           this.thrownCoins++;
@@ -93,7 +94,7 @@ class World {
           if (indexOfCoins !== -1) {
             this.level.coins.splice(indexOfCoins, 1);
           }
-          console.log("Charakter sammelt Münze!");
+          
         } else if (obj instanceof Bottles) {
           this.thrownBottles++;
           this.StatusBottleBar.setpercentage(this.thrownBottles);
@@ -102,18 +103,42 @@ class World {
             this.level.bottles.splice(indexOfBottle, 1);
           }
 
-          console.log("Charakter trifft Flasche!", obj);
+          
         } else {
           // von allen anderen dmg
           this.character.hit();
           this.StatusHealthBar.setpercentage(this.character.energy);
           this.pain.play();
-          console.log("TREFFER TREFFER", this.character.energy);
+          
         }
       }
     });
+    
   }
 
+  checkBottleCollisions() {
+    this.throwableObjects.forEach((thrownBottle) => {   // durch das array durch gehen damit wir wissen welche bottle weil char ist immer da aber bottle is nen array
+      
+      this.level.enemies.forEach((enemy, enemyIndex) => {    // hier ist wichtig den index mit zugeben damit der weis welches chicken stirbt
+        if (thrownBottle.isColliding(enemy)) {
+          if (enemy instanceof Chicken) {
+            enemy.die()
+            this.chicken_kill_sound.play();
+          
+          } else if (enemy instanceof Endboss) {
+            enemy.hit();
+            console.log('treffer ',this.energy);
+            
+          
+            //this.level.enemies.splice(enemyIndex, 1);
+            
+          }
+        }
+      });
+    });
+  }
+  
+  
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.translate(this.camer_x, 0); // kamera position

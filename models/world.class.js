@@ -79,7 +79,7 @@ class World {
             
             this.chicken_kill_sound.play();
             obj.die();
-            this.character.jump(10);
+            this.character.jump(15);
           } else {
             //von den chicken dmg
             this.character.hit();

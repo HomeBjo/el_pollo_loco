@@ -8,6 +8,7 @@ class Endboss extends MovableObject{
         left:0,
         right:0,
     }
+    
 
     IMAGES_START = [
         'img/4_enemie_boss_chicken/2_alert/G5.png',
@@ -32,6 +33,8 @@ class Endboss extends MovableObject{
         'img/4_enemie_boss_chicken/5_dead/G25.png',
         'img/4_enemie_boss_chicken/5_dead/G26.png',
     ];
+    world;
+    hadFirstContact=false;
 
     constructor(){
         super().loadImage(this.IMAGES_START[0])
@@ -42,24 +45,30 @@ class Endboss extends MovableObject{
         this.animate();
     }
 
-    test(lala){
-        this.lala=lala
-    }
-
     animate() {
+        let i = 0;
         this.enbossAnimationInterval = setInterval(() => {
+            if (i < 7) {
+                this.playAnimation(this.IMAGES_START);
+            }
+            i++;
+
+            if (this.world.character.x > 1750 && !this.hadFirstContact) {
+                i = 0;
+                this.hadFirstContact=true;
+            }
+
+            if (this.isHurt()) {
+                this.playAnimation(this.IMAGES_HURT);
+            }
+
             if (this.isDead()) {
                 // clearInterval(this.enbossAnimationInterval);
                 this.playAnimationOnce(this.IMAGES_DEAD, () => {
                     // Hier kannst du zusätzlichen Code ausführen, wenn die Todesanimation abgeschlossen ist.
                     // Zum Beispiel: this.playAnimation(this.IMAGES_WALKING);
                 });
-            } else if (this.isHurt()) {
-                this.playAnimation(this.IMAGES_HURT);
-            } else if (this.lala==1) {
-                this.playAnimationOnce(this.IMAGES_START);
             }
-
         }, 200);
     }
 }

@@ -2,12 +2,17 @@ class Endboss extends MovableObject{
     height =400;
     width =250;
     y=60;
+    x=2270;
     offset = {
         top:100,
         bottom:0,
         left:0,
         right:0,
     }
+    characterPosition=false;
+    endbossDead=false;
+    start=false;
+   
     
 
     IMAGES_START = [
@@ -19,6 +24,15 @@ class Endboss extends MovableObject{
         'img/4_enemie_boss_chicken/2_alert/G10.png',
         'img/4_enemie_boss_chicken/2_alert/G11.png',
         'img/4_enemie_boss_chicken/2_alert/G12.png',
+       
+    ];
+    
+    IMAGES_WALK = [
+        'img/4_enemie_boss_chicken/1_walk/G1.png',
+        'img/4_enemie_boss_chicken/1_walk/G2.png',
+        'img/4_enemie_boss_chicken/1_walk/G3.png',
+        'img/4_enemie_boss_chicken/1_walk/G4.png',
+        
        
     ];
 
@@ -33,7 +47,7 @@ class Endboss extends MovableObject{
         'img/4_enemie_boss_chicken/5_dead/G25.png',
         'img/4_enemie_boss_chicken/5_dead/G26.png',
     ];
-    world;
+    
     hadFirstContact=false;
 
     constructor(){
@@ -41,19 +55,35 @@ class Endboss extends MovableObject{
         this.loadImages(this.IMAGES_START);
         this.loadImages(this.IMAGES_HURT);
         this.loadImages(this.IMAGES_DEAD);
-        this.x=2270;
+        this.loadImages(this.IMAGES_WALK);
+       
+        this.speed = 2.15 + Math.random() * 0.25;
         this.animate();
+        
     }
+   
+
+    
 
     animate() {
+        setInterval(() => {
+            if (!this.endbossDead && this.hadFirstContact && i > 8 ) {
+              this.moveLeft();
+            }
+          }, 1000 / 60);
+
         let i = 0;
         this.enbossAnimationInterval = setInterval(() => {
-            if (i < 7) {
+            if (i < 8 && !this.endbossDead) {
                 this.playAnimation(this.IMAGES_START);
+            } else if (!(this.endbossDead)) {
+                
+                this.playAnimation(this.IMAGES_WALK);
+                
             }
             i++;
 
-            if (this.world.character.x > 1750 && !this.hadFirstContact) {
+            if (this.characterPosition && !this.hadFirstContact) {
                 i = 0;
                 this.hadFirstContact=true;
             }
@@ -63,11 +93,10 @@ class Endboss extends MovableObject{
             }
 
             if (this.isDead()) {
-                // clearInterval(this.enbossAnimationInterval);
-                this.playAnimationOnce(this.IMAGES_DEAD, () => {
-                    // Hier kannst du zusätzlichen Code ausführen, wenn die Todesanimation abgeschlossen ist.
-                    // Zum Beispiel: this.playAnimation(this.IMAGES_WALKING);
-                });
+            
+                this.playAnimationOnce(this.IMAGES_DEAD);
+                this.endbossDead=true;
+                
             }
         }, 200);
     }

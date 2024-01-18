@@ -44,6 +44,7 @@ class World {
 
   checkThrowObjects() {
     if (this.keyboard.D && this.thrownBottles > 0) {
+      this.character.timeCount=0; // leider noch ne langen delay 
       const startX = this.character.otherDirection
         ? this.character.x - 30
         : this.character.x + 100; // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
@@ -59,6 +60,7 @@ class World {
       // Reduziere die Anzahl der geworfenen Flaschen
       this.thrownBottles--;
       this.StatusBottleBar.setpercentage(this.thrownBottles);
+      
     }
   }
 

@@ -51,4 +51,3 @@ class Chicken extends MovableObject {
     };
 }
 }
- 

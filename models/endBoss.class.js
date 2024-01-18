@@ -11,6 +11,7 @@ class Endboss extends MovableObject{
     }
     characterPosition=false;
     endbossDead=false;
+    hadFirstContact=false;
     
    
     
@@ -48,7 +49,7 @@ class Endboss extends MovableObject{
         'img/4_enemie_boss_chicken/5_dead/G26.png',
     ];
     
-    hadFirstContact=false;
+  
 
     constructor(){
         super().loadImage(this.IMAGES_START[0])

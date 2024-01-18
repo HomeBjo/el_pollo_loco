@@ -4,6 +4,7 @@ class Character extends MovableObject{
     speed = 7;
     y=130;
     x=70;
+    timeCount=0;
     offset = {
         top:100,
         bottom:10,
@@ -52,6 +53,20 @@ class Character extends MovableObject{
         'img/2_character_pepe/4_hurt/H-43.png',
     ];
 
+    IMAGES_IDLE = [
+        'img/2_character_pepe/4_hurt/H-41.png',
+        'img/2_character_pepe/4_hurt/H-42.png',
+        'img/2_character_pepe/4_hurt/H-43.png',
+    ];
+
+    IMAGES_LONG_IDLE = [
+        'img/2_character_pepe/4_hurt/H-41.png',
+        'img/2_character_pepe/4_hurt/H-42.png',
+        'img/2_character_pepe/4_hurt/H-43.png',
+    ];
+
+
+
     world;  //*1
     walking_sound_pepe = new Audio('audio/walking_pepe.mp3')
     
@@ -78,6 +93,7 @@ class Character extends MovableObject{
              this.walking_sound_pepe.play();
              this.world.game_music.play(); 
              this.otherDirection = false;
+             this.timeCount=0;
             }
 
             if(this.world.keyboard.LEFT && this.x >0){     // &&thisx 0 für begrenzung 
@@ -85,16 +101,18 @@ class Character extends MovableObject{
                 this.walking_sound_pepe.play()
                 this.world.game_music.play(); 
                 this.otherDirection = true;
+                this.timeCount=0;
             }
 
             if(this.world.keyboard.SPACE && !this.isAboveGround()){
                 this.jump();
+                 this.timeCount=0;
             }
 
 
             this.world.camer_x= -this.x + 150;    // +100 für position pepe 
             
-            
+            this.timeCount+=1000 / 60; console.log('zahl',this.timeCount)
         }, 1000 / 60);
 
         this.characterAnimationInterval = setInterval(()=>{

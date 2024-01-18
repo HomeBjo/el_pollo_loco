@@ -86,29 +86,20 @@ class World {
             this.character.hit();
             this.StatusHealthBar.setpercentage(this.character.energy);
             this.pain.play();
-            
           }
         } else if (obj instanceof Coins) {
           this.thrownCoins++;
           this.StatusCoinBar.setpercentage(this.thrownCoins);
-          
           this.level.coins.splice(this.level.coins.indexOf(obj), 1);
-           
-          
-          
         } else if (obj instanceof Bottles) {
           this.thrownBottles++;
           this.StatusBottleBar.setpercentage(this.thrownBottles);
-        
-          this.level.bottles.splice(this.level.bottles.indexOf(obj), 1);
-
-          
+          this.level.bottles.splice(this.level.bottles.indexOf(obj), 1); 
         } else {
           // von allen anderen dmg
           this.character.hit();
           this.StatusHealthBar.setpercentage(this.character.energy);
           this.pain.play();
-          
         }
       }
     });
@@ -126,7 +117,7 @@ class World {
           
           } else if (enemy instanceof Endboss) {
             enemy.hit();
-            console.log('treffer ',this.energy);
+            
             
           
             //this.level.enemies.splice(enemyIndex, 1);

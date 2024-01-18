@@ -1,6 +1,7 @@
 class World {
   character = new Character();
   level = level1; //auslagern in video 13 objekte und davor die enemies und chicken usw in video 07 klassen anlegen (    clouds =level1.clouds ;enemies =level1.enemies ;backgroundObject =level1.backgroundObject; )  zu dem hier mit level-> level=level1 *2  auslagert in 14 character optimieren zu dieser version
+  sound = new Sounds();
   canvas;
   ctx;
   keyboard;
@@ -11,7 +12,7 @@ class World {
   throwableObjects = []; //new throwableObjects(100,20)  drin stehen würde würde es sofort eine flasche werfen
   thrownBottles = 20;
   thrownCoins = 0;
-  game_music = new Audio("audio/main_music.mp3");
+ 
   chicken_kill_sound = new Audio("audio/chicken_die.mp3");
   intro_endboss = new Audio("audio/endboss_start.mp3");
   trow_bottle = new Audio("audio/throwing_bottle.mp3");

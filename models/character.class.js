@@ -1,4 +1,5 @@
 class Character extends MovableObject {
+  arrays= new Arrays();
   width = 110;
   height = 300;
   speed = 7;
@@ -13,14 +14,7 @@ class Character extends MovableObject {
     right: 20,
   };
 
-  IMAGES_WALKING = [
-    "img/2_character_pepe/2_walk/W-21.png",
-    "img/2_character_pepe/2_walk/W-22.png",
-    "img/2_character_pepe/2_walk/W-23.png",
-    "img/2_character_pepe/2_walk/W-24.png",
-    "img/2_character_pepe/2_walk/W-25.png",
-    "img/2_character_pepe/2_walk/W-26.png",
-  ];
+ 
 
   IMAGES_JUMPING = [
     "img/2_character_pepe/3_jump/J-31.png",
@@ -81,7 +75,7 @@ class Character extends MovableObject {
 
   constructor() {
     super().loadImage("img/2_character_pepe/2_walk/W-21.png"); //beim zugreifen auf der func der übergeordneten klasse _movableObjects_ super verwenden
-    this.loadImages(this.IMAGES_WALKING);
+    this.loadImages(this.arrays.IMAGES_WALKING);
     this.loadImages(this.IMAGES_JUMPING);
     this.loadImages(this.IMAGES_DEAD);
     this.loadImages(this.IMAGES_HURT);
@@ -99,7 +93,7 @@ class Character extends MovableObject {
         //&& this.x < this.world.level.level_end_x)  lvl begrenzung anch rechts   dafür lvl in world eingebunden *2
         this.moveRight();
         this.walking_sound_pepe.play();
-        this.world.game_music.play();
+        this.world.sound.game_music.play();
         this.otherDirection = false;
         this.timeCount = 0;
       }
@@ -108,7 +102,7 @@ class Character extends MovableObject {
         // &&thisx 0 für begrenzung
         this.moveLeft();
         this.walking_sound_pepe.play();
-        this.world.game_music.play();
+        this.world.sound.game_music.play();
         this.otherDirection = true;
         this.timeCount = 0;
       }
@@ -132,7 +126,7 @@ class Character extends MovableObject {
       } else if (this.isAboveGround()) {
         this.playAnimation(this.IMAGES_JUMPING);
       } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-        this.playAnimation(this.IMAGES_WALKING);
+        this.playAnimation(this.arrays.IMAGES_WALKING);
       } else if (this.timeCount > 3000 && !this.idleAnimationPlayed) {
         this.playAnimation(this.IMAGES_LONG_IDLE);
       } else {

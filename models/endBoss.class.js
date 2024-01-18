@@ -11,7 +11,7 @@ class Endboss extends MovableObject{
     }
     characterPosition=false;
     endbossDead=false;
-    start=false;
+    
    
     
 

@@ -91,18 +91,16 @@ class World {
         } else if (obj instanceof Coins) {
           this.thrownCoins++;
           this.StatusCoinBar.setpercentage(this.thrownCoins);
-          const indexOfCoins = this.level.coins.indexOf(obj);
-          if (indexOfCoins !== -1) {
-            this.level.coins.splice(indexOfCoins, 1);
-          }
+          
+          this.level.coins.splice(this.level.coins.indexOf(obj), 1);
+           
+          
           
         } else if (obj instanceof Bottles) {
           this.thrownBottles++;
           this.StatusBottleBar.setpercentage(this.thrownBottles);
-          const indexOfBottle = this.level.bottles.indexOf(obj);
-          if (indexOfBottle !== -1) {
-            this.level.bottles.splice(indexOfBottle, 1);
-          }
+        
+          this.level.bottles.splice(this.level.bottles.indexOf(obj), 1);
 
           
         } else {

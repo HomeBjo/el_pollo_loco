@@ -21,6 +21,8 @@ class World {
   intro_endboss_played = false;
   characterPosition = false;
 
+
+
   constructor(canvas, keyboard) {
     this.ctx = canvas.getContext("2d");
     this.canvas = canvas;
@@ -28,6 +30,7 @@ class World {
     this.draw();
     this.setWorld(); //*1
     this.run();
+    this.pain.volume = 0.1;
   }
 
   setWorld() {
@@ -76,7 +79,9 @@ class World {
         if (obj instanceof Chicken) {
           if (
             this.character.y + this.character.offset.top < obj.y &&
-            this.character.isAboveGround() //&&
+            this.character.isAboveGround()
+            && this.character.isFalling() 
+            //&&
             // this.character.y > -100.6  // soll eig eine höhen abfrage sein damit der char eine gewisse höhe erreichen muss CALL FRAGEN
           ) {
             
@@ -212,7 +217,6 @@ class World {
       
     } if (this.character.x >= 1650)  {
       this.level.enemies[3].characterPosition=true;
-      this.StatusHealthBarEndBoss.showEndBossHealth=true;
       this.StatusHealthBarEndBoss.updateHealthBarPosition();
 
   }

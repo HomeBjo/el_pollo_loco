@@ -138,4 +138,7 @@ class Character extends MovableObject {
   jump(speedY = 30) { 
     this.speedY = speedY;
   }
+  isFalling(){
+    return this.speedY < 0;
+  }
 }

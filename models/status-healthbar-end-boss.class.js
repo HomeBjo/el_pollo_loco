@@ -14,7 +14,6 @@ class StatusHealthBarEndBoss extends drawableObjects {
     constructor(){
         super();
         this.loadImages(this.IMAGES);
-    //    if (!this.showEndBossHealth) {
         this.x = 500;
         this.y = -100;
         this.width = 200;
@@ -28,7 +27,7 @@ class StatusHealthBarEndBoss extends drawableObjects {
             let speed = 20; // wie schnell der das anpasst
     
             if (currentY < endY) {
-                //  y aktualisieren bis
+                //  y aktualisieren bis end ereicht ist
                 this.y = Math.min(currentY + speed, endY);
             }
         

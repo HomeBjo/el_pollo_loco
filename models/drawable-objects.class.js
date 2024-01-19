@@ -37,7 +37,21 @@ class drawableObjects {                       // im video ell pollo loco 2 mathe
             );
             ctx.stroke();
         }
+        // if ( this instanceof Endboss ) {
+
+        //     const image = new Image();
+        //     image.src = "img/7_statusbars/2_statusbar_endboss/orange/orange0.png";
+        //     ctx.rect(
+        //     this.x + this.offset.left,
+        //         this.y + this.offset.top,
+        //         this.width - this.offset.left - this.offset.right,
+        //         this.height - this.offset.top - this.offset.bottom
+        //         );
+        //     // Zeichne das Bild auf den Canvas
+        //     ctx.drawImage(image, this.x, this.y, this.width, this.height);
+        // } _<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<falls der endboss leben übersich haben soll anstatt auf der map
     }
+
 
     loadImages(arr) {
         arr.forEach((path)=> {

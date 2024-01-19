@@ -9,10 +9,11 @@ class World {
   StatusHealthBar = new StatusHealthBar();
   StatusBottleBar = new StatusBottleBar();
   StatusCoinBar = new StatusCoinBar();
+  throwableObjectsClass = new throwableObjects()
+  StatusHealthBarEndBoss = new StatusHealthBarEndBoss();
   throwableObjects = []; //new throwableObjects(100,20)  drin stehen würde würde es sofort eine flasche werfen
   thrownBottles = 20;
   thrownCoins = 0;
- 
   chicken_kill_sound = new Audio("audio/chicken_die.mp3");
   intro_endboss = new Audio("audio/endboss_start.mp3");
   trow_bottle = new Audio("audio/throwing_bottle.mp3");
@@ -85,7 +86,6 @@ class World {
           } else {
             //von den chicken dmg
             this.character.hit(5);
-            console.log('leben ',this.character.energy)
             this.StatusHealthBar.setpercentage(this.character.energy);
             this.pain.play();
           }
@@ -109,16 +109,19 @@ class World {
   }
 
   checkBottleCollisions() {
-    this.throwableObjects.forEach((thrownBottle) => {   // durch das array durch gehen damit wir wissen welche bottle weil char ist immer da aber bottle is nen array
+    this.throwableObjects.forEach((thrownBottle,i) => {   // durch das array durch gehen damit wir wissen welche bottle weil char ist immer da aber bottle is nen array
       
-      this.level.enemies.forEach((enemy, enemyIndex) => {    // hier ist wichtig den index mit zugeben damit der weis welches chicken stirbt
+      this.level.enemies.forEach((enemy) => {   
         if (thrownBottle.isColliding(enemy)) {
           if (enemy instanceof Chicken) {
+             this.throwableObjects[i].splash()
             enemy.die()
             this.chicken_kill_sound.play();
           
           } else if (enemy instanceof Endboss) {
-            enemy.hit();
+            enemy.hit(10);
+            this.StatusHealthBarEndBoss.setpercentage(this.level.enemies[3].energy);
+            this.throwableObjects[i].splash()
             
             
           
@@ -129,7 +132,6 @@ class World {
       });
     });
   }
-  
   
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -149,6 +151,7 @@ class World {
     this.addToMap(this.StatusHealthBar);
     this.addToMap(this.StatusBottleBar);
     this.addToMap(this.StatusCoinBar);
+    this.addToMap(this.StatusHealthBarEndBoss);
     this.ctx.translate(this.camer_x, 0); // Forwards
 
     this.addToMap(this.character);
@@ -182,6 +185,7 @@ class World {
 
     mo.draw(this.ctx); // hier stand das vorher drin *3 bischen geändern guck google doc
     mo.drawFrame(this.ctx);
+   
 
     if (mo.otherDirection) {
       this.flipImageback(mo);
@@ -208,6 +212,8 @@ class World {
       
     } if (this.character.x >= 1650)  {
       this.level.enemies[3].characterPosition=true;
+      this.StatusHealthBarEndBoss.showEndBossHealth=true;
+      this.StatusHealthBarEndBoss.updateHealthBarPosition();
 
   }
 }}

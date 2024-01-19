@@ -44,7 +44,7 @@ class World {
       this.checkThrowObjects();
       this.checkCharacterPosition();
       this.checkBottleCollisions();
-    }, 100);
+    }, 50);
   }
 
   checkThrowObjects() {
@@ -79,12 +79,8 @@ class World {
         if (obj instanceof Chicken) {
           if (
             this.character.y + this.character.offset.top < obj.y &&
-            this.character.isAboveGround()
-            && this.character.isFalling() 
-            //&&
-            // this.character.y > -100.6  // soll eig eine höhen abfrage sein damit der char eine gewisse höhe erreichen muss CALL FRAGEN
+             this.character.isFalling() 
           ) {
-            
             this.chicken_kill_sound.play();
             obj.die();
             this.character.jump(15);

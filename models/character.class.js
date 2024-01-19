@@ -109,7 +109,7 @@ class Character extends MovableObject {
 
       if (this.world.keyboard.SPACE && !this.isAboveGround()) {
         this.jump();
-        this.timeCount = -1000; // ca 900 für die sprungzeit
+        this.timeCount = -2000; // ca 900 für die sprungzeit
       }
 
       this.world.camer_x = -this.x + 150; // +100 für position pepe

@@ -1,5 +1,5 @@
 class Character extends MovableObject {
-  arrays= new Arrays();
+  ARRAY = new Arrays();
   width = 110;
   height = 300;
   speed = 7;
@@ -75,7 +75,7 @@ class Character extends MovableObject {
 
   constructor() {
     super().loadImage("img/2_character_pepe/2_walk/W-21.png"); //beim zugreifen auf der func der übergeordneten klasse _movableObjects_ super verwenden
-    this.loadImages(this.arrays.IMAGES_WALKING);
+    this.loadImages(this.ARRAY.IMAGES_WALKING);
     this.loadImages(this.IMAGES_JUMPING);
     this.loadImages(this.IMAGES_DEAD);
     this.loadImages(this.IMAGES_HURT);
@@ -126,7 +126,7 @@ class Character extends MovableObject {
       } else if (this.isAboveGround()) {
         this.playAnimation(this.IMAGES_JUMPING);
       } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-        this.playAnimation(this.arrays.IMAGES_WALKING);
+        this.playAnimation(this.ARRAY.IMAGES_WALKING);
       } else if (this.timeCount > 3000 && !this.idleAnimationPlayed) {
         this.playAnimation(this.IMAGES_LONG_IDLE);
       } else {

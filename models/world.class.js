@@ -45,10 +45,8 @@ class World {
 
   checkThrowObjects() {
     if (this.keyboard.D && this.thrownBottles > 0) {
-      this.character.timeCount=0; // leider noch ne langen delay 
-      const startX = this.character.otherDirection
-        ? this.character.x - 30
-        : this.character.x + 100; // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
+      this.character.timeCount=0; 
+      const startX = this.character.otherDirection ? this.character.x - 30 : this.character.x + 100; // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
       const startY = this.character.y + 100;
       let bottle = new throwableObjects(
         startX,
@@ -86,7 +84,8 @@ class World {
             this.character.jump(15);
           } else {
             //von den chicken dmg
-            this.character.hit();
+            this.character.hit(5);
+            console.log('leben ',this.character.energy)
             this.StatusHealthBar.setpercentage(this.character.energy);
             this.pain.play();
           }
@@ -100,7 +99,7 @@ class World {
           this.level.bottles.splice(this.level.bottles.indexOf(obj), 1); 
         } else {
           // von allen anderen dmg
-          this.character.hit();
+          this.character.hit(100);
           this.StatusHealthBar.setpercentage(this.character.energy);
           this.pain.play();
         }

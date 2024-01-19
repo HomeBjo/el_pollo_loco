@@ -39,7 +39,7 @@ class drawableObjects {                       // im video ell pollo loco 2 mathe
         }
         // if ( this instanceof Endboss ) {
 
-        //     const image = new Image();
+        //     const image = new Image();           // theo könnte man auch auf world und die klasse zugreifen die da mit new ist oder so     const image = this.worldImage;
         //     image.src = "img/7_statusbars/2_statusbar_endboss/orange/orange0.png";
         //     ctx.rect(
         //     this.x + this.offset.left,

@@ -80,7 +80,7 @@ class World {
           if (
             this.character.y + this.character.offset.top < obj.y &&
              this.character.isFalling() 
-          ) {
+          )  {
             this.chicken_kill_sound.play();
             obj.die();
             this.character.jump(15);
@@ -110,29 +110,30 @@ class World {
   }
 
   checkBottleCollisions() {
-    this.throwableObjects.forEach((thrownBottle,i) => {   // durch das array durch gehen damit wir wissen welche bottle weil char ist immer da aber bottle is nen array
-      
-      this.level.enemies.forEach((enemy) => {   
-        if (thrownBottle.isColliding(enemy)) {
-          if (enemy instanceof Chicken) {
-             this.throwableObjects[i].splash()
-            enemy.die()
-            this.chicken_kill_sound.play();
-          
-          } else if (enemy instanceof Endboss) {
-            enemy.hit(10);
-            this.StatusHealthBarEndBoss.setpercentage(this.level.enemies[3].energy);
-            this.throwableObjects[i].splash()
-            
-            
-          
-            //this.level.enemies.splice(enemyIndex, 1);
-            
-          }
-        }
-      });
+    this.throwableObjects.forEach((thrownBottle, i) => {
+        // Durch das Array gehen, um zu wissen, welche Flasche es ist, da character immer da ist, aber bottle ein Array ist
+        this.level.enemies.forEach((enemy) => {
+            if (thrownBottle.isColliding(enemy)) {
+                if (enemy instanceof Chicken) {
+                    this.throwableObjects[i].splash();
+                    enemy.die();
+                    this.chicken_kill_sound.play();
+                } else if (enemy instanceof Endboss) {
+                    // Überprüfen, ob der Boss bereits getroffen wurde
+                    if (!enemy.wasHit) {
+                        enemy.hit(10);
+                        this.StatusHealthBarEndBoss.setpercentage(this.level.enemies[3].energy);
+                        this.throwableObjects[i].splash();
+                        enemy.wasHit = true;  // Setze die Flagge, dass der Boss getroffen wurde
+                        setTimeout(() => {
+                            enemy.wasHit = false;  // Setze die Flagge nach einer gewissen Zeit zurück
+                        }, 2000);  // Hier kannst du die Zeit in Millisekunden anpassen
+                    }
+                }
+            }
+        });
     });
-  }
+}
   
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);

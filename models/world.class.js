@@ -20,6 +20,7 @@ class World {
   pain = new Audio("audio/pain.mp3");
   intro_endboss_played = false;
   characterPosition = false;
+  count=0;
 
 
 
@@ -48,8 +49,10 @@ class World {
   }
 
   checkThrowObjects() {
-    if (this.keyboard.D && this.thrownBottles > 0) {
+    this.count++
+    if (this.keyboard.D && this.thrownBottles > 0 && this.count>10) {
       this.character.timeCount=0; 
+      this.count=0;
       const startX = this.character.otherDirection ? this.character.x - 30 : this.character.x + 100; // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
       const startY = this.character.y + 100;
       let bottle = new throwableObjects(
@@ -110,8 +113,9 @@ class World {
   }
 
   checkBottleCollisions() {
+    const currentTime = Date.now();
+
     this.throwableObjects.forEach((thrownBottle, i) => {
-        // Durch das Array gehen, um zu wissen, welche Flasche es ist, da character immer da ist, aber bottle ein Array ist
         this.level.enemies.forEach((enemy) => {
             if (thrownBottle.isColliding(enemy)) {
                 if (enemy instanceof Chicken) {
@@ -119,21 +123,21 @@ class World {
                     enemy.die();
                     this.chicken_kill_sound.play();
                 } else if (enemy instanceof Endboss) {
-                    // Überprüfen, ob der Boss bereits getroffen wurde
-                    if (!enemy.wasHit) {
+                    if (!enemy.isHurt()) {
                         enemy.hit(10);
                         this.StatusHealthBarEndBoss.setpercentage(this.level.enemies[3].energy);
+                        console.log('treffer',this.level.enemies[3].energy)
                         this.throwableObjects[i].splash();
-                        enemy.wasHit = true;  // Setze die Flagge, dass der Boss getroffen wurde
-                        setTimeout(() => {
-                            enemy.wasHit = false;  // Setze die Flagge nach einer gewissen Zeit zurück
-                        }, 2000);  // Hier kannst du die Zeit in Millisekunden anpassen
+
+                        //zeitstempel für den letzten Treffer
+                        enemy.lastHit = currentTime;
                     }
                 }
             }
         });
     });
 }
+
   
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);

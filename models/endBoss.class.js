@@ -89,7 +89,7 @@ class Endboss extends MovableObject{
                 this.hadFirstContact=true;
             }
 
-            if (this.isHurt()) {
+            if (this.isHurt()&& !(this.endbossDead)) {
                 this.playAnimation(this.IMAGES_HURT);
             }
 

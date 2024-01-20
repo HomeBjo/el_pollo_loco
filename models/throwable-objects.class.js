@@ -50,11 +50,14 @@ IMAGES_SPLASH = [
         }, 25);
     }
 
-  
+  spalshBottle(){
+setInterval(() => {
+    
+        this.playAnimationOnce(this.IMAGES_SPLASH)
+     
 
-splash() {
-    this.playAnimationOnce(this.IMAGES_SPLASH);
-}
+}, 100);}
+
 
    
     

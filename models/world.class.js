@@ -14,13 +14,10 @@ class World {
   throwableObjects = []; //new throwableObjects(100,20)  drin stehen würde würde es sofort eine flasche werfen
   thrownBottles = 20;
   thrownCoins = 0;
-  chicken_kill_sound = new Audio("audio/chicken_die.mp3");
-  intro_endboss = new Audio("audio/endboss_start.mp3");
-  trow_bottle = new Audio("audio/throwing_bottle.mp3");
-  pain = new Audio("audio/pain.mp3");
   intro_endboss_played = false;
   characterPosition = false;
-  count=0;
+  throwCount=0;
+ 
 
 
 
@@ -31,7 +28,9 @@ class World {
     this.draw();
     this.setWorld(); //*1
     this.run();
-    this.pain.volume = 0.1;
+    this.sound.pain.volume = 0.1;
+    this.sound.endboss_hurt.volume =0.1;
+    this.sound.glas_break.volume =0.3;
   }
 
   setWorld() {
@@ -49,10 +48,10 @@ class World {
   }
 
   checkThrowObjects() {
-    this.count++
-    if (this.keyboard.D && this.thrownBottles > 0 && this.count>10) {
+    this.throwCount++
+    if (this.keyboard.D && this.thrownBottles > 0 && this.throwCount>10) {
       this.character.timeCount=0; 
-      this.count=0;
+      this.throwCount=0;
       const startX = this.character.otherDirection ? this.character.x - 30 : this.character.x + 100; // setze variablen fest und fragt durch den operator ab ? wen wahr dan -30  : und wen falsch dan +100
       const startY = this.character.y + 100;
       let bottle = new throwableObjects(
@@ -61,7 +60,7 @@ class World {
         this.character.otherDirection
       ); // bottle wurf position
       this.throwableObjects.push(bottle);
-      this.trow_bottle.play();
+      this.sound.trow_bottle.play();
 
       // Reduziere die Anzahl der geworfenen Flaschen
       this.thrownBottles--;
@@ -84,28 +83,30 @@ class World {
             this.character.y + this.character.offset.top < obj.y &&
              this.character.isFalling() 
           )  {
-            this.chicken_kill_sound.play();
+            this.sound.chicken_kill_sound.play();
             obj.die();
             this.character.jump(15);
           } else {
             //von den chicken dmg
             this.character.hit(5);
             this.StatusHealthBar.setpercentage(this.character.energy);
-            this.pain.play();
+            this.sound.pain.play();
           }
         } else if (obj instanceof Coins) {
           this.thrownCoins++;
+          this.sound.coin.play();
           this.StatusCoinBar.setpercentage(this.thrownCoins);
           this.level.coins.splice(this.level.coins.indexOf(obj), 1);
         } else if (obj instanceof Bottles) {
           this.thrownBottles++;
+          this.sound.bottle.play();
           this.StatusBottleBar.setpercentage(this.thrownBottles);
           this.level.bottles.splice(this.level.bottles.indexOf(obj), 1); 
         } else {
           // von allen anderen dmg
           this.character.hit(100);
           this.StatusHealthBar.setpercentage(this.character.energy);
-          this.pain.play();
+          this.sound.pain.play();
         }
       }
     });
@@ -119,15 +120,18 @@ class World {
         this.level.enemies.forEach((enemy) => {
             if (thrownBottle.isColliding(enemy)) {
                 if (enemy instanceof Chicken) {
-                    this.throwableObjects[i].splash();
+                    this.throwableObjects[i]. spalshBottle();
+                    this.sound.glas_break.play()
                     enemy.die();
-                    this.chicken_kill_sound.play();
+                    this.sound.chicken_kill_sound.play();
                 } else if (enemy instanceof Endboss) {
                     if (!enemy.isHurt()) {
                         enemy.hit(10);
+                        this.sound.glas_break.play()
+                        this.sound.endboss_hurt.play()
                         this.StatusHealthBarEndBoss.setpercentage(this.level.enemies[3].energy);
                         console.log('treffer',this.level.enemies[3].energy)
-                        this.throwableObjects[i].splash();
+                        this.throwableObjects[i]. spalshBottle();
 
                         //zeitstempel für den letzten Treffer
                         enemy.lastHit = currentTime;
@@ -213,7 +217,7 @@ class World {
   checkCharacterPosition() {
     if (this.character.x >= 1000 && !this.intro_endboss_played) {
       //nach dem && => introEndbossPlayed zuerst auf false und dan in der funktion auf true damit nur einmal abgespielt wird
-      this.intro_endboss.play();
+      this.sound.intro_endboss.play();
       this.intro_endboss_played = true; //  die variable erst auf false setzen und anch dem play auf true damit es nur einmal abspielt
       
     } if (this.character.x >= 1650)  {

@@ -1,5 +1,6 @@
 class Character extends MovableObject {
   ARRAY = new Arrays();
+  sound = new Sounds();
   width = 110;
   height = 300;
   speed = 7;
@@ -71,7 +72,7 @@ class Character extends MovableObject {
   ];
 
   world; //*1
-  walking_sound_pepe = new Audio("audio/walking_pepe.mp3");
+  
 
   constructor() {
     super().loadImage("img/2_character_pepe/2_walk/W-21.png"); //beim zugreifen auf der func der übergeordneten klasse _movableObjects_ super verwenden
@@ -83,16 +84,16 @@ class Character extends MovableObject {
     this.loadImages(this.IMAGES_LONG_IDLE);
     this.applyGravity();
     this.animate();
-    this.walking_sound_pepe.volume = 0.1;
+    this.sound.walking_sound_pepe.volume = 0.1;
   }
 
   animate() {
     setInterval(() => {
-      this.walking_sound_pepe.pause();
+      this.sound.walking_sound_pepe.pause();
       if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
         //&& this.x < this.world.level.level_end_x)  lvl begrenzung anch rechts   dafür lvl in world eingebunden *2
         this.moveRight();
-        this.walking_sound_pepe.play();
+        this.sound.walking_sound_pepe.play();
         this.world.sound.game_music.play();
         this.otherDirection = false;
         this.timeCount = 0;
@@ -101,7 +102,7 @@ class Character extends MovableObject {
       if (this.world.keyboard.LEFT && this.x > 0) {
         // &&thisx 0 für begrenzung
         this.moveLeft();
-        this.walking_sound_pepe.play();
+        this.sound.walking_sound_pepe.play();
         this.world.sound.game_music.play();
         this.otherDirection = true;
         this.timeCount = 0;

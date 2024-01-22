@@ -1,4 +1,5 @@
 class Endboss extends MovableObject{
+    ARRAY = new Arrays();
     height =400;
     width =250;
     y=60;
@@ -15,48 +16,15 @@ class Endboss extends MovableObject{
     
    
     
-
-    IMAGES_START = [
-        'img/4_enemie_boss_chicken/2_alert/G5.png',
-        'img/4_enemie_boss_chicken/2_alert/G6.png',
-        'img/4_enemie_boss_chicken/2_alert/G7.png',
-        'img/4_enemie_boss_chicken/2_alert/G8.png',
-        'img/4_enemie_boss_chicken/2_alert/G9.png',
-        'img/4_enemie_boss_chicken/2_alert/G10.png',
-        'img/4_enemie_boss_chicken/2_alert/G11.png',
-        'img/4_enemie_boss_chicken/2_alert/G12.png',
-       
-    ];
-    
-    IMAGES_WALK = [
-        'img/4_enemie_boss_chicken/1_walk/G1.png',
-        'img/4_enemie_boss_chicken/1_walk/G2.png',
-        'img/4_enemie_boss_chicken/1_walk/G3.png',
-        'img/4_enemie_boss_chicken/1_walk/G4.png',
-        
-       
-    ];
-
-    IMAGES_HURT = [
-        'img/4_enemie_boss_chicken/4_hurt/G21.png',
-        'img/4_enemie_boss_chicken/4_hurt/G22.png',
-        'img/4_enemie_boss_chicken/4_hurt/G23.png',
-    ];
-
-    IMAGES_DEAD =[
-        'img/4_enemie_boss_chicken/5_dead/G24.png',
-        'img/4_enemie_boss_chicken/5_dead/G25.png',
-        'img/4_enemie_boss_chicken/5_dead/G26.png',
-    ];
-    
+ 
   
 
     constructor(){
-        super().loadImage(this.IMAGES_START[0])
-        this.loadImages(this.IMAGES_START);
-        this.loadImages(this.IMAGES_HURT);
-        this.loadImages(this.IMAGES_DEAD);
-        this.loadImages(this.IMAGES_WALK);
+        super().loadImage(this.ARRAY.IMAGES_START_BOSS[0])
+        this.loadImages(this.ARRAY.IMAGES_START_BOSS);
+        this.loadImages(this.ARRAY.IMAGES_HURT_BOSS);
+        this.loadImages(this.ARRAY.IMAGES_DEAD_BOSS);
+        this.loadImages(this.ARRAY.IMAGES_WALK_BOSS);
        
         this.speed = 2.15 + Math.random() * 0.25;
         this.animate();
@@ -76,10 +44,10 @@ class Endboss extends MovableObject{
         let i = 0;
         this.enbossAnimationInterval = setInterval(() => {
             if (i < 8 && !this.endbossDead) {
-                this.playAnimation(this.IMAGES_START);
+                this.playAnimation(this.ARRAY.IMAGES_START_BOSS);
             } else if (!(this.endbossDead)) {
                 
-                this.playAnimation(this.IMAGES_WALK);
+                this.playAnimation(this.ARRAY.IMAGES_WALK_BOSS);
                 
             }
             i++;
@@ -90,12 +58,12 @@ class Endboss extends MovableObject{
             }
 
             if (this.isHurt()&& !(this.endbossDead)) {
-                this.playAnimation(this.IMAGES_HURT);
+                this.playAnimation(this.ARRAY.IMAGES_HURT_BOSS);
             }
 
             if (this.isDead()) {
             
-                this.playAnimationOnce(this.IMAGES_DEAD);
+                this.playAnimationOnce(this.ARRAY.IMAGES_DEAD_BOSS);
                 this.endbossDead=true;
                 
             }

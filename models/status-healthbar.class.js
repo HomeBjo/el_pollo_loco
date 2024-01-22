@@ -1,21 +1,12 @@
 class StatusHealthBar extends drawableObjects {
 
-    IMAGES = [
-        'img/7_statusbars/1_statusbar/2_statusbar_health/green/0.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/green/20.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/green/40.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/green/60.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/green/80.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/green/100.png'
-
-    
-    ];
+  
 
     percentage = 100;
 
     constructor(){
         super();
-        this.loadImages(this.IMAGES);
+        this.loadImages(this.ARRAY.IMAGES_HEALTH_BAR_PEPE);
         this.x = 5;
         this.y = -15;
         this.width = 200;
@@ -28,7 +19,7 @@ class StatusHealthBar extends drawableObjects {
     //setpercentage(50) von außen auf den wert zugreifen ändern usw
     setpercentage(percentage){
         this.percentage = percentage
-        let path = this.IMAGES[this.resolveImageIndex()];
+        let path = this.ARRAY.IMAGES_HEALTH_BAR_PEPE[this.resolveImageIndex()];
         this.img =this.imageChace[path]
         
     }

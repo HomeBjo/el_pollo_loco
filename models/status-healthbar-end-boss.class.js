@@ -1,19 +1,12 @@
 class StatusHealthBarEndBoss extends drawableObjects {
-    showEndBossHealth=false;
-    IMAGES = [
-        'img/7_statusbars/2_statusbar_endboss/orange/orange0.png',
-        'img/7_statusbars/2_statusbar_endboss/orange/orange20.png',
-        'img/7_statusbars/2_statusbar_endboss/orange/orange40.png',
-        'img/7_statusbars/2_statusbar_endboss/orange/orange60.png',
-        'img/7_statusbars/2_statusbar_endboss/orange/orange80.png',
-        'img/7_statusbars/2_statusbar_endboss/orange/orange100.png'
-    ];
 
+    showEndBossHealth=false;
+   
     percentage = 100;
 
     constructor(){
         super();
-        this.loadImages(this.IMAGES);
+        this.loadImages(this.ARRAY.IMAGES_HEALTH_BAR_BOSS);
         this.x = 500;
         this.y = -100;
         this.width = 200;
@@ -36,7 +29,7 @@ class StatusHealthBarEndBoss extends drawableObjects {
     //setpercentage(50) von außen auf den wert zugreifen ändern usw
     setpercentage(percentage){
         this.percentage = percentage
-        let path = this.IMAGES[this.resolveImageIndex()];
+        let path = this.ARRAY.IMAGES_HEALTH_BAR_BOSS[this.resolveImageIndex()];
         this.img =this.imageChace[path]
         
     }

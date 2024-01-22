@@ -16,15 +16,6 @@ class Bottles extends MovableObject {
     "img/6_salsa_bottle/2_salsa_bottle_on_ground.png",
   ];
 
-  IMAGES_SPLASH = [
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/1_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/2_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/3_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/4_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png",
-  ];
- 
   constructor() {
     super();
     if (Math.random() < 0.5) {      //  zufälliges zahl ermitteln  wenn kleiner als 0,5 dan ture sons false  damit wechsele ich den pfad durch die if abfrage
@@ -32,12 +23,7 @@ class Bottles extends MovableObject {
     } else {
       this.loadImage(this.IMAGES[1]);
     }
-    this.loadImages(this.IMAGES_SPLASH);
-    
     this.x = 300 + Math.random() * 1000;
   }
-
-//   splash(){
-//     this.playAnimation(this.IMAGES_SPLASH);
-//   }
+ 
 }

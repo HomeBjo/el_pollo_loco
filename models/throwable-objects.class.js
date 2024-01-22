@@ -1,4 +1,5 @@
 class throwableObjects extends MovableObject {
+    ARRAY = new Arrays();
     //  offset = {
     //     top:3,
     //     bottom:3,
@@ -8,21 +9,11 @@ class throwableObjects extends MovableObject {
 
  IMAGES = [
     "img/6_salsa_bottle/salsa_bottle.png"
-
     ];
-
-IMAGES_SPLASH = [
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/1_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/2_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/3_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/4_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png",
-    "img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png"
-  ];
 
     constructor(x, y, otherDirection) {
         super().loadImage('img/6_salsa_bottle/salsa_bottle.png');
-        this.loadImages(this.IMAGES_SPLASH);
+        this.loadImages(this.ARRAY.IMAGES_SPLASH);
         
         this.x=x;
         this.y=y;
@@ -53,7 +44,7 @@ IMAGES_SPLASH = [
   spalshBottle(){
 setInterval(() => {
     
-        this.playAnimationOnce(this.IMAGES_SPLASH)
+        this.playAnimationOnce(this.ARRAY.IMAGES_SPLASH)
      
 
 }, 100);}

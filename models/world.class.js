@@ -17,6 +17,7 @@ class World {
   intro_endboss_played = false;
   characterPosition = false;
   throwCount=0;
+  endboss_win=false;
  
 
 
@@ -28,14 +29,19 @@ class World {
     this.draw();
     this.setWorld(); //*1
     this.run();
-    this.sound.pain.volume = 0.1;
-    this.sound.endboss_hurt.volume =0.1;
-    this.sound.glas_break.volume =0.3;
+   this.setSoundVolume();
   }
 
   setWorld() {
     // hier übergeben wir die ganze world an character damit er auf alle variablen zugreifen kann *1
     this.character.world = this;
+  }
+
+   setSoundVolume() {
+    this.sound.pain.volume = 0.1;
+    this.sound.endboss_hurt.volume =0.1;
+    this.sound.glas_break.volume =0.3;
+    this.sound.endboss_win.volume=0.3;
   }
 
   run() {
@@ -107,6 +113,14 @@ class World {
           this.character.hit(100);
           this.StatusHealthBar.setpercentage(this.character.energy);
           this.sound.pain.play();
+          if (this.character.energy <= 0) {
+            if (obj.boss_sound) {
+              this.sound.endboss_win.play()
+              obj.boss_sound=false;
+            } 
+            obj.stopMoving=true;
+          }
+          
         }
       }
     });

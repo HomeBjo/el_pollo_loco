@@ -1,5 +1,6 @@
 class Endboss extends MovableObject{
     ARRAY = new Arrays();
+    sound = new Sounds();
     height =400;
     width =250;
     y=60;
@@ -13,6 +14,10 @@ class Endboss extends MovableObject{
     characterPosition=false;
     endbossDead=false;
     hadFirstContact=false;
+    stopMoving=false;
+    boss_sound=true;
+    pepe_win_sound=true;
+    
     
    
     
@@ -32,11 +37,11 @@ class Endboss extends MovableObject{
     }
    
 
-    
+   
 
     animate() {
         setInterval(() => {
-            if (!this.endbossDead && this.hadFirstContact && i > 8 ) {
+            if (!this.endbossDead && this.hadFirstContact && i > 8 && !this.stopMoving ) {
               this.moveLeft();
             }
           }, 1000 / 60);
@@ -45,9 +50,10 @@ class Endboss extends MovableObject{
         this.enbossAnimationInterval = setInterval(() => {
             if (i < 8 && !this.endbossDead) {
                 this.playAnimation(this.ARRAY.IMAGES_START_BOSS);
-            } else if (!(this.endbossDead)) {
+            } else if ((!this.endbossDead && !this.stopMoving)) {
                 
                 this.playAnimation(this.ARRAY.IMAGES_WALK_BOSS);
+                this.test=true;
                 
             }
             i++;
@@ -64,7 +70,13 @@ class Endboss extends MovableObject{
             if (this.isDead()) {
             
                 this.playAnimationOnce(this.ARRAY.IMAGES_DEAD_BOSS);
+                
+               
                 this.endbossDead=true;
+                if (this.pepe_win_sound) {
+                    this.sound.pepe_game_win.play()
+                    this.pepe_win_sound=false;
+                  } 
                 
             }
         }, 200);

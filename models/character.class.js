@@ -26,12 +26,12 @@ class Character extends MovableObject {
     this.loadImages(this.ARRAY.IMAGES_LONG_IDLE);
     this.applyGravity();
     this.animate();
-    this.sound.walking_sound_pepe.volume = 0.1;
   }
 
   animate() {
     setInterval(() => {
       this.sound.walking_sound_pepe.pause();
+      this.sound.walking_sound_pepe.volume = 0.2;
       if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
         //&& this.x < this.world.level.level_end_x)  lvl begrenzung anch rechts   dafür lvl in world eingebunden *2
         this.moveRight();

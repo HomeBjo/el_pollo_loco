@@ -9,6 +9,7 @@ class Sounds {
     bottle = new Audio("audio/bottle_clink.mp3");
     glas_break = new Audio("audio/glass_breaking.mp3");
     endboss_hurt = new Audio("audio/endboss_hit_sounds.mp3");
-   
+    endboss_win = new Audio("audio/endboss_wins.mp3");
+    pepe_game_win=new Audio("audio/pepe_wins.mp3");
   
 }

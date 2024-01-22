@@ -7,11 +7,11 @@ class drawableObjects {                       // im video ell pollo loco 2 mathe
     y=285;
     height=150;
     width =100;
-    currentStatus_max;
-    currentStatus_80;
-    currentStatus_60;
-    currentStatus_40;
-    currentStatus_low;
+    // currentStatus_max;
+    // currentStatus_80;
+    // currentStatus_60;
+    // currentStatus_40;
+    // currentStatus_low;     // wieso muss ich das hier nicht stehen haben um es veerben zu können ?
 
     loadImage(path){
         this.img = new Image(); // this.img = document.getElementbyId('image') <image id = "image" src>    genau das selbe _> VIEDO 7,8

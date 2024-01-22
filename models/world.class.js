@@ -129,7 +129,7 @@ class World {
                         this.sound.glas_break.play()
                         this.sound.endboss_hurt.play()
                         this.StatusHealthBarEndBoss.setpercentage(this.level.enemies[3].energy);
-                        console.log('treffer',this.level.enemies[3].energy)
+                        
                         this.throwableObjects[i]. spalshBottle();
                     }
                 }

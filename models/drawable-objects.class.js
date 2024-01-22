@@ -7,6 +7,11 @@ class drawableObjects {                       // im video ell pollo loco 2 mathe
     y=285;
     height=150;
     width =100;
+    currentStatus_max;
+    currentStatus_80;
+    currentStatus_60;
+    currentStatus_40;
+    currentStatus_low;
 
     loadImage(path){
         this.img = new Image(); // this.img = document.getElementbyId('image') <image id = "image" src>    genau das selbe _> VIEDO 7,8
@@ -60,6 +65,28 @@ class drawableObjects {                       // im video ell pollo loco 2 mathe
         img.src = path; 
         this.imageChace[path]=img;
     });
+}
+
+resolveImageIndex(){
+    if (this.percentage == this.currentStatus_max ) {
+        return 5;  
+    }
+    else if (this.percentage > this.currentStatus_80 ) {
+        return 4;  
+    }
+    else if  (this.percentage > this.currentStatus_60 ) {
+        return 3;  
+    }
+    else if  (this.percentage > this.currentStatus_40 ) {
+        return 2;  
+    }
+    else if  (this.percentage >= this.currentStatus_low ) {
+        return 1;  
+    }
+    else {
+        return 0;  
+    }
+
 }
 
 

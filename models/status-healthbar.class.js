@@ -1,5 +1,9 @@
 class StatusHealthBar extends drawableObjects {
-
+    currentStatus_max=100;
+    currentStatus_80=80;
+    currentStatus_60=60;
+    currentStatus_40=40;
+    currentStatus_low=20;
   
 
     percentage = 100;
@@ -24,26 +28,26 @@ class StatusHealthBar extends drawableObjects {
         
     }
 
-    resolveImageIndex(){
-        if (this.percentage == 100 ) {
-            return 5;  
-        }
-        else if (this.percentage > 80 ) {
-            return 4;  
-        }
-        else if  (this.percentage > 60 ) {
-            return 3;  
-        }
-        else if  (this.percentage > 40 ) {
-            return 2;  
-        }
-        else if  (this.percentage > 20 ) {
-            return 1;  
-        }
-        else {
-            return 0;  
-        }
+    // resolveImageIndex(){
+    //     if (this.percentage == 100 ) {
+    //         return 5;  
+    //     }
+    //     else if (this.percentage > 80 ) {
+    //         return 4;  
+    //     }
+    //     else if  (this.percentage > 60 ) {
+    //         return 3;  
+    //     }
+    //     else if  (this.percentage > 40 ) {
+    //         return 2;  
+    //     }
+    //     else if  (this.percentage > 20 ) {
+    //         return 1;  
+    //     }
+    //     else {
+    //         return 0;  
+    //     }
 
-    }
+    // }
 
 }

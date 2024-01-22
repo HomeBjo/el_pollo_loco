@@ -5,7 +5,7 @@ class Sounds {
     trow_bottle = new Audio("audio/throwing_bottle.mp3");
     pain = new Audio("audio/pain.mp3");
     walking_sound_pepe = new Audio("audio/walking_pepe.mp3");
-    coin = new Audio("audio/silvercoin.mp3");
+    coin = new Audio("audio/coin_in_bag.mp3");
     bottle = new Audio("audio/bottle_clink.mp3");
     glas_break = new Audio("audio/glass_breaking.mp3");
     endboss_hurt = new Audio("audio/endboss_hit_sounds.mp3");

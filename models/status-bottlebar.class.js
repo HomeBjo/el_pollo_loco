@@ -25,26 +25,4 @@ class StatusBottleBar extends drawableObjects {
         this.img =this.imageChace[path]
         
     }
-
-    // resolveImageIndex(){
-    //     if (this.percentage == 4 ) {
-    //         return 5;  
-    //     }
-    //     else if (this.percentage > 3 ) {
-    //         return 4;  
-    //     }
-    //     else if  (this.percentage > 2 ) {
-    //         return 3;  
-    //     }
-    //     else if  (this.percentage > 1 ) {
-    //         return 2;  
-    //     }
-    //     else if  (this.percentage >= 1 ) {
-    //         return 1;  
-    //     }
-    //     else {
-    //         return 0;  
-    //     }
-
-    // }
 }

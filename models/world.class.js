@@ -119,7 +119,7 @@ class World {
         this.level.enemies.forEach((enemy) => {
             if (thrownBottle.isColliding(enemy)) {
                 if (enemy instanceof Chicken) {
-                    this.throwableObjects[i]. spalshBottle();
+                    this.throwableObjects[i].spalshBottle();
                     this.sound.glas_break.play()
                     enemy.die();
                     this.sound.chicken_kill_sound.play();
@@ -130,7 +130,7 @@ class World {
                         this.sound.endboss_hurt.play()
                         this.StatusHealthBarEndBoss.setpercentage(this.level.enemies[3].energy);
                         
-                        this.throwableObjects[i]. spalshBottle();
+                        this.throwableObjects[i].spalshBottle();
                     }
                 }
             }

@@ -114,7 +114,6 @@ class World {
   }
 
   checkBottleCollisions() {
-    const currentTime = Date.now();
 
     this.throwableObjects.forEach((thrownBottle, i) => {
         this.level.enemies.forEach((enemy) => {
@@ -132,9 +131,6 @@ class World {
                         this.StatusHealthBarEndBoss.setpercentage(this.level.enemies[3].energy);
                         console.log('treffer',this.level.enemies[3].energy)
                         this.throwableObjects[i]. spalshBottle();
-
-                        //zeitstempel für den letzten Treffer
-                        enemy.lastHit = currentTime;
                     }
                 }
             }

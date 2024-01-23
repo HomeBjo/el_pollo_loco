@@ -19,7 +19,13 @@ class drawableObjects {                       // im video ell pollo loco 2 mathe
     }
 
     draw(ctx) {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height); //*2 so wäre die draw normal
+        try {
+            ctx.drawImage(this.img, this.x, this.y, this.width, this.height); //*2 so wäre die draw normal
+        } catch (e) {
+            console.log('Error loading image', e);
+            console.log('could not load image', this.img);
+        }
+        
 
     }
 

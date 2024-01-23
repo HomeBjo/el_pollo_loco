@@ -11,6 +11,7 @@ class Endboss extends MovableObject{
         left:0,
         right:0,
     }
+    world;  // welt gesetzt fals nötig <
     characterPosition=false;
     endbossDead=false;
     hadFirstContact=false;
@@ -30,7 +31,6 @@ class Endboss extends MovableObject{
         this.loadImages(this.ARRAY.IMAGES_HURT_BOSS);
         this.loadImages(this.ARRAY.IMAGES_DEAD_BOSS);
         this.loadImages(this.ARRAY.IMAGES_WALK_BOSS);
-       
         this.speed = 2.15 + Math.random() * 0.25;
         this.animate();
         
@@ -39,7 +39,7 @@ class Endboss extends MovableObject{
 
    
 
-    animate() {
+    animate() { 
         setInterval(() => {
             if (!this.endbossDead && this.hadFirstContact && i > 8 && !this.stopMoving ) {
               this.moveLeft();

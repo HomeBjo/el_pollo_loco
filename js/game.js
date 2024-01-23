@@ -22,9 +22,13 @@ function setStoppableInterval(fn,time){
 
 }
 
-function clearAllIntervals() {
-    for (let i = 1; i < 9999; i++) window.clearInterval(i);
-  }
+function stopAllSounds() {
+    world.sound.stopAllSounds();
+}
+
+// function clearAllIntervals() {
+//     for (let i = 1; i < 9999; i++) window.clearInterval(i);
+//   }  // dirty version 
 
 function changeScreen(){
 document.getElementById('startMenu').classList.add('d-none');

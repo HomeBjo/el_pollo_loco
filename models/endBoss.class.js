@@ -40,14 +40,14 @@ class Endboss extends MovableObject{
    
 
     animate() { 
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (!this.endbossDead && this.hadFirstContact && i > 8 && !this.stopMoving ) {
               this.moveLeft();
             }
           }, 1000 / 60);
 
         let i = 0;
-        this.enbossAnimationInterval = setInterval(() => {
+        this.enbossAnimationInterval = setStoppableInterval(() => {
             if (i < 8 && !this.endbossDead) {
                 this.playAnimation(this.ARRAY.IMAGES_START_BOSS);
             } else if ((!this.endbossDead && !this.stopMoving)) {

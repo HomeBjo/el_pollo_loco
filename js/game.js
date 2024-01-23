@@ -1,6 +1,7 @@
 let canvas;
 let world; 
 let keyboard = new Keyboard();
+let intervallIds=[];
 
 
 function startGame(){
@@ -8,10 +9,23 @@ function startGame(){
     initLevel();
     canvas= document.getElementById('canvas');
     world = new World(canvas, keyboard);                                                  // auslagern erste stufe video 9 charakter anzeigen
-   
-   
  
 } 
+
+function stopGame() {
+    intervallIds.forEach(clearInterval);
+    
+}
+function setStoppableInterval(fn,time){
+    let id = setInterval(fn,time);
+    intervallIds.push(id);
+
+}
+
+function clearAllIntervals() {
+    for (let i = 1; i < 9999; i++) window.clearInterval(i);
+  }
+
 function changeScreen(){
 document.getElementById('startMenu').classList.add('d-none');
 document.getElementById('canvas').classList.remove('d-none');

@@ -15,7 +15,7 @@ class MovableObject extends drawableObjects{
     }
 
     applyGravity(){
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {                         // die abfrage das es wann es ausgelöst wird entweder wen 
             this.y-=this.speedY;
             this.speedY -= this.acceleration; 

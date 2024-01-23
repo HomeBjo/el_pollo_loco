@@ -29,7 +29,7 @@ class Character extends MovableObject {
   }
 
   animate() {
-    setInterval(() => {
+    setStoppableInterval(() => {
       this.sound.walking_sound_pepe.pause();
       this.sound.walking_sound_pepe.volume = 0.2;
       if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
@@ -60,7 +60,7 @@ class Character extends MovableObject {
       this.timeCount += 1000 / 60;
     }, 1000 / 60);
 
-    this.characterAnimationInterval = setInterval(() => {
+    this.characterAnimationInterval = setStoppableInterval(() => {
       if (this.isDead()) {
         this.playAnimationOnce(this.ARRAY.IMAGES_DEAD);
       } else if (this.isHurt()) {

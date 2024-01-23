@@ -32,7 +32,7 @@ class throwableObjects extends MovableObject {
         this.speedY = 30;
         this.applyGravity();
 
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (!this.otherDirection) {
                 this.x += 10;
             } else {
@@ -42,7 +42,7 @@ class throwableObjects extends MovableObject {
     }
 
   spalshBottle(){
-setInterval(() => {
+    setStoppableInterval(() => {
     
         this.playAnimationOnce(this.ARRAY.IMAGES_SPLASH)
      

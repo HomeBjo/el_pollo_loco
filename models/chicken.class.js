@@ -27,13 +27,13 @@ class Chicken extends MovableObject {
   }
 
   animate() {
-    setInterval(() => {
+    setStoppableInterval(() => {
       if (!this.isDead) {
         this.moveLeft();
       }
     }, 1000 / 60);
 
-    setInterval(() => {
+    setStoppableInterval(() => {
       if (!this.isDead) {
         this.playAnimation(this.IMAGES_WALKING); // video 16  funktioins merhmals da auf eine funktion verkleinern also auslagern und übergeben bilder *3
       }

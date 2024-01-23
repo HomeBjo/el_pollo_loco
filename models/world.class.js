@@ -35,7 +35,7 @@ class World {
    setWorld() {
     // hier übergeben wir die ganze world an character damit er auf alle variablen zugreifen kann *1
     this.character.world = this;
-    this.level.enemies[3].world=this;  // hier nochmal welt gesetzt fals nötig <<<
+    // this.level.enemies[3].world=this;  // hier nochmal welt gesetzt fals nötig <<<
   
   }
 

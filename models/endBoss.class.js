@@ -11,7 +11,7 @@ class Endboss extends MovableObject{
         left:0,
         right:0,
     }
-    world;  // welt gesetzt fals nötig <
+    // world;  // welt gesetzt fals nötig <
     characterPosition=false;
     endbossDead=false;
     hadFirstContact=false;

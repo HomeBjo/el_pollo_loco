@@ -4,14 +4,18 @@ let keyboard = new Keyboard();
 
 
 function startGame(){
-    
-    this.initLevel();
+    changeScreen();
+    initLevel();
     canvas= document.getElementById('canvas');
     world = new World(canvas, keyboard);                                                  // auslagern erste stufe video 9 charakter anzeigen
    
    
  
 } 
+function changeScreen(){
+document.getElementById('startMenu').classList.add('d-none');
+document.getElementById('canvas').classList.remove('d-none');
+}
 
 window.addEventListener("keydown", (e) => {
    

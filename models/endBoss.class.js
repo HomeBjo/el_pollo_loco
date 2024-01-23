@@ -74,7 +74,7 @@ class Endboss extends MovableObject{
                
                 this.endbossDead=true;
                 if (this.pepe_win_sound) {
-                    this.sound.pepe_game_win.play()
+                    this.sound.pepe_game_win.play()   
                     this.pepe_win_sound=false;
                   } 
                 

@@ -3,11 +3,13 @@ let world;
 let keyboard = new Keyboard();
 
 
-function init(){
+function startGame(){
+    
+    this.initLevel();
     canvas= document.getElementById('canvas');
     world = new World(canvas, keyboard);                                                  // auslagern erste stufe video 9 charakter anzeigen
    
-    console.log('My character is',world)
+   
  
 } 
 

@@ -29,7 +29,7 @@ class World {
     this.draw();
     this.setWorld(); //*1
     this.run();
-   this.setSoundVolume();
+    this.setSoundVolume();
   }
 
   setWorld() {

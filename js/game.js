@@ -14,6 +14,8 @@ function startGame(){
 
 function stopGame() {
     intervallIds.forEach(clearInterval);
+    resetVariable()
+    
     
 }
 function setStoppableInterval(fn,time){
@@ -25,6 +27,13 @@ function setStoppableInterval(fn,time){
 function stopAllSounds() {
     world.sound.stopAllSounds();
 }
+
+function resetVariable() {
+    world.hadFirstContact=false;
+    world.intro_endboss_played=false;
+}
+
+
 
 // function clearAllIntervals() {
 //     for (let i = 1; i < 9999; i++) window.clearInterval(i);

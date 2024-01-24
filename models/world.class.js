@@ -30,6 +30,7 @@ class World {
     this.setWorld(); //*1
     this.run();
     this.setSoundVolume();
+  
   }
 
    setWorld() {
@@ -44,6 +45,8 @@ class World {
     this.sound.endboss_hurt.volume =0.1;
     this.sound.glas_break.volume =0.3;
     this.sound.endboss_win.volume=0.3;
+    this.character.sound.walking_sound_pepe.volume=0.3;
+    this.sound.pepe_game_win.volume = 0;
   }
 
   run() {

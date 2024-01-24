@@ -26,12 +26,17 @@ class Character extends MovableObject {
     this.loadImages(this.ARRAY.IMAGES_LONG_IDLE);
     this.applyGravity();
     this.animate();
+   
+  }
+
+  setVolume(volume){
+    return this.sound.walking_sound_pepe.volume = volume;
   }
 
   animate() {
     setStoppableInterval(() => {
       this.sound.walking_sound_pepe.pause();
-      this.sound.walking_sound_pepe.volume = 0.2;
+     
       if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
         //&& this.x < this.world.level.level_end_x)  lvl begrenzung anch rechts   dafür lvl in world eingebunden *2
         this.moveRight();
@@ -41,7 +46,7 @@ class Character extends MovableObject {
         this.timeCount = 0;
       }
 
-      if (this.world.keyboard.LEFT && this.x > 0) {
+      if (this.world.keyboard.LEFT && this.x > -100) {
         // &&thisx 0 für begrenzung
         this.moveLeft();
         this.sound.walking_sound_pepe.play();

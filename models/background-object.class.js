@@ -11,10 +11,10 @@ class BackgroundObject extends MovableObject {
     }
 
      moveWithParallax(characterX, otherDirection) {
-        // prüfen ob der charackter bewegt wird 
+        // ob der char sich bewegt 
         if (characterX !== this.previousCharacterX) {
             // bei links ode rechts - oder +
-            if (characterX > 60) {   // auseinander reisen verhindert
+            if (characterX > 60) {   // auseinander reisen verhindert beim start
             this.x -= otherDirection ? -this.speed : this.speed;
         }
 

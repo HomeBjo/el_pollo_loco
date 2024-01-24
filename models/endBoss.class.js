@@ -35,6 +35,10 @@ class Endboss extends MovableObject{
         this.animate();
         
     }
+
+    setVolume(volume){
+        return this.sound.pepe_game_win.volume = volume;
+      }
    
 
    

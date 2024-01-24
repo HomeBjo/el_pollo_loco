@@ -36,15 +36,19 @@
     <h1>El Pollo Loco</h1>
 
    <div id="startMenu">
-    <button onclick="startGame()">start</button>
+    <button class="BtN" onclick="startGame()">start</button>
+    <button class="BtN" onclick="muteAllSounds()">Mute</button>
+   
    </div>
    <canvas id="canvas" width="720" height="480" class="d-none"></canvas>
-   <div class="description" >How To Play</div>
+   <button class="BtN" onclick="muteAllSounds()">Mute</button>
+   <div class="description" ><span>How To Play</span></div>
    <div class="descriptionSektion">
-    <div>Left</div>
-    <div>Right</div>
-    <div>Jump</div>
-    <div>Attack</div>
+    <div class="descriptionContainer"> <div class="descriptionTitle">Left </div>  <div class="descriptionButton"><img src="img/10_keys/links.png" alt=""></div> </div>
+    <div class="descriptionContainer"> <div class="descriptionTitle">Right </div>  <div class="descriptionButton"><img src="img/10_keys/rechts_Orange.png" alt=""></div> </div>
+    <div class="descriptionContainer"> <div class="descriptionTitle">Jump </div>  <div class="descriptionButton"><img src="img/10_keys/thumbnail_space_Small.png" alt=""></div> </div>
+    <div class="descriptionContainer"> <div class="descriptionTitle">Attack </div>  <div class="descriptionButton"><img src="img/10_keys/D_Weis.png" alt=""></div> </div>
+ 
 </div>
 
 </body>

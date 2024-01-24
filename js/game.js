@@ -28,6 +28,12 @@ function stopAllSounds() {
     world.sound.stopAllSounds();
 }
 
+function muteAllSounds() {
+    // world.sound.muteAllSounds();
+    world.character.setVolume(0.0);
+    world.level.enemies[3].setVolume(0.0);
+}
+
 function resetVariable() {
     world.hadFirstContact=false;
     world.intro_endboss_played=false;
@@ -37,7 +43,7 @@ function resetVariable() {
 
 // function clearAllIntervals() {
 //     for (let i = 1; i < 9999; i++) window.clearInterval(i);
-//   }  // dirty version 
+//   }                                                                         // dirty version 
 
 function changeScreen(){
 document.getElementById('startMenu').classList.add('d-none');

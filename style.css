@@ -99,6 +99,13 @@ display: flex;
     display: flex;
     height: 100px;
 }
+.mobileControler{
+    display: flex;
+}
+
+.mobileBtN{
+    height: 100px;
+}
 
 /*Smartphones-----------------*/
 @media only screen and (max-width:720px){

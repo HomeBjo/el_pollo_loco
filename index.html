@@ -1,63 +1,80 @@
 <!DOCTYPE html>
 <html translate="no" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="font.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="font.css" />
 
     <title>El pollo loco</title>
-    
-    <script src="models/drawable-objects.class.js" ></script>
-    <script src="models/movable-object.class.js" ></script>
+
+    <script src="models/drawable-objects.class.js"></script>
+    <script src="models/movable-object.class.js"></script>
     <script src="models/character.class.js"></script>
     <script src="assets/arrays.class.js"></script>
     <script src="assets/sounds.class.js"></script>
-    <script src="models/chicken.class.js" ></script>
-    <script src="models/cloud.class.js" ></script>
+    <script src="models/chicken.class.js"></script>
+    <script src="models/cloud.class.js"></script>
     <script src="models/coins.class.js"></script>
     <script src="models/bottles.class.js"></script>
-    <script src="models/status-healthbar.class.js" ></script>
-    <script src="models/status-bottlebar.class.js" ></script>
-    <script src="models/status-coinbar.class.js" ></script>
-    <script src="models/status-healthbar-end-boss.class.js" ></script>
-    <script src="models/world.class.js" ></script>
-    <script src="models/background-object.class.js" ></script>
-    <script src="models/keyboard.class.js" ></script>
-    <script src="models/level.class.js" ></script>
-    <script src="models/throwable-objects.class.js" ></script>
-    <script src="models/endBoss.class.js" ></script>
-    <script src="levels/level1.js" ></script>
+    <script src="models/status-healthbar.class.js"></script>
+    <script src="models/status-bottlebar.class.js"></script>
+    <script src="models/status-coinbar.class.js"></script>
+    <script src="models/status-healthbar-end-boss.class.js"></script>
+    <script src="models/world.class.js"></script>
+    <script src="models/background-object.class.js"></script>
+    <script src="models/keyboard.class.js"></script>
+    <script src="models/level.class.js"></script>
+    <script src="models/throwable-objects.class.js"></script>
+    <script src="models/endBoss.class.js"></script>
+    <script src="levels/level1.js"></script>
     <script src="js/game.js"></script>
-    
-</head>
-<body>
-
+  </head>
+  <body>
     <h1>El Pollo Loco</h1>
 
-   <div id="startMenu">
-    <button class="BtN" onclick="startGame()">start</button>
+    <div id="startMenu">
+      <button class="BtN" onclick="startGame()">start</button>
+      <button class="BtN" onclick="muteAllSounds()">Mute</button>
+    </div>
+    <canvas id="canvas" width="720" height="480" class="d-none"></canvas>
     <button class="BtN" onclick="muteAllSounds()">Mute</button>
-   
-   </div>
-   <canvas id="canvas" width="720" height="480" class="d-none"></canvas>
-   <button class="BtN" onclick="muteAllSounds()">Mute</button>
-   <div class="description" ><span>How To Play</span></div>
-   <div class="descriptionSektion">
-    <div class="descriptionContainer"> <div class="descriptionTitle">Left </div>  <div class="descriptionButton"><img src="img/10_keys/links.png" alt=""></div> </div>
-    <div class="descriptionContainer"> <div class="descriptionTitle">Right </div>  <div class="descriptionButton"><img src="img/10_keys/rechts_Orange.png" alt=""></div> </div>
-    <div class="descriptionContainer"> <div class="descriptionTitle">Jump </div>  <div class="descriptionButton"><img src="img/10_keys/thumbnail_space_Small.png" alt=""></div> </div>
-    <div class="descriptionContainer"> <div class="descriptionTitle">Attack </div>  <div class="descriptionButton"><img src="img/10_keys/D_Weis.png" alt=""></div> </div>
- 
-    
-</div>
-<div class="mobileControler">
-    <button id="BtN-R"><img class="mobileBtN"  src="img/10_keys/rechts_Orange.png" alt=""></button>
-    <button ><img class="mobileBtN" id="BtN-L" src="img/10_keys/links.png" alt=""></button>
-    <button ><img class="mobileBtN" id="BtN-S" src="img/10_keys/thumbnail_space_Small.png" alt=""></button>
-    <button ><img class="mobileBtN" id="BtN-D" src="img/10_keys/D_Weis.png" alt=""></button>
-</div>
-
-
-</body>
+    <div class="description"><span>How To Play</span></div>
+    <div class="descriptionSektion">
+      <div class="descriptionContainer">
+        <div class="descriptionTitle">Left</div>
+        <div class="descriptionButton">
+          <img src="img/10_keys/links.png" alt="" />
+        </div>
+      </div>
+      <div class="descriptionContainer">
+        <div class="descriptionTitle">Right</div>
+        <div class="descriptionButton">
+          <img src="img/10_keys/rechts_Orange.png" alt="" />
+        </div>
+      </div>
+      <div class="descriptionContainer">
+        <div class="descriptionTitle">Jump</div>
+        <div class="descriptionButton">
+          <img src="img/10_keys/thumbnail_space_Small.png" alt="" />
+        </div>
+      </div>
+      <div class="descriptionContainer">
+        <div class="descriptionTitle">Attack</div>
+        <div class="descriptionButton">
+          <img src="img/10_keys/D_Weis.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="mobileControler">
+      <div>
+        <img class="mobileBtN" id="BtN-L" src="img/10_keys/links.png" alt="" />
+        <img class="mobileBtN" id="BtN-R" src="img/10_keys/rechts_Orange.png" alt=""/>
+        </div>
+      <div>
+        <img class="mobileBtN" id="BtN-S" src="img/10_keys/thumbnail_space_Small.png" alt=""/>
+        <img class="mobileBtN" id="BtN-D" src="img/10_keys/D_Weis.png" alt="" />
+      </div>
+    </div>
+  </body>
 </html>

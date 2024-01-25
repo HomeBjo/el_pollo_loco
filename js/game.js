@@ -26,8 +26,8 @@ function stopAllSounds() {
 
 function muteAllSoundsIngame() {
   world.sound.muteAllSounds();
-  world.character.setVolume(0.0);
-  world.level.enemies[3].setVolume(0.0);     // einmal testen ob das noch so muss!!
+  // world.character.setVolume(0.0);
+  // world.level.enemies[3].setVolume(0.0);     // einmal testen ob das noch so muss!!
 }
 
 function resetVariable() {

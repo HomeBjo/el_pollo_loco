@@ -19,6 +19,8 @@ class Sounds {
         this.endboss_win.volume = 0.3;
         this.walking_sound_pepe.volume = 0.3;
         this.pepe_game_win.volume = 0.3;
+        this.isMuted=false; 
+        this.previousVolume = 0.3;   // evt mal als object testen sons shit drauf !!  also das jeder sound halt sein eigenes volume hat 1!!
     }
 
     stopAllSounds() {
@@ -29,11 +31,21 @@ class Sounds {
     }
 
     muteAllSounds() {
-        this.forEachSound(sound => sound.volume = 0);
+        this.forEachSound(audio => {
+            if (this.isMuted) {
+                audio.volume = this.previousVolume;  // Zurück zur vorherigen Lautstärke
+            } else {
+                this.previousVolume = audio.volume;  // Speichere die aktuelle Lautstärke
+                audio.volume = 0;  // Stummschalten
+            }
+        });
+
+        this.isMuted = !this.isMuted;  // Kehre den Stummzustand um
     }
 
     forEachSound(callback) {
-        Object.values(this).forEach(value => {
+        const soundObjects = Object.values(this);
+        soundObjects.forEach(value => {
             if (value instanceof Audio) {
                 callback(value);
             }

@@ -1,7 +1,7 @@
 class World {
   character = new Character();
   level = level1; //auslagern in video 13 objekte und davor die enemies und chicken usw in video 07 klassen anlegen (    clouds =level1.clouds ;enemies =level1.enemies ;backgroundObject =level1.backgroundObject; )  zu dem hier mit level-> level=level1 *2  auslagert in 14 character optimieren zu dieser version
-  sound = new Sounds();
+ sound= new Sounds();
   canvas;
   ctx;
   keyboard;
@@ -29,25 +29,25 @@ class World {
     this.draw();
     this.setWorld(); //*1
     this.run();
-    this.setSoundVolume();
+    // this.setSoundVolume();
   
   }
 
    setWorld() {
     // hier übergeben wir die ganze world an character damit er auf alle variablen zugreifen kann *1
     this.character.world = this;
-    // this.level.enemies[3].world=this;  // hier nochmal welt gesetzt fals nötig <<<
+    this.level.enemies[3].world=this;  // hier nochmal welt gesetzt fals nötig <<<
   
   }
 
-   setSoundVolume() {
-    this.sound.pain.volume = 0.1;
-    this.sound.endboss_hurt.volume =0.1;
-    this.sound.glas_break.volume =0.3;
-    this.sound.endboss_win.volume=0.3;
-    this.character.sound.walking_sound_pepe.volume=0.3;
-    this.sound.pepe_game_win.volume = 0;
-  }
+  //  setSoundVolume() {
+  //   this.sound.pain.volume = 0.1;
+  //   this.sound.endboss_hurt.volume =0.1;
+  //   this.sound.glas_break.volume =0.3;
+  //   this.sound.endboss_win.volume=0.3;
+  //   this.character.sound.walking_sound_pepe.volume=0.3;
+  //   this.sound.pepe_game_win.volume = 0;
+  // }
 
   run() {
     setStoppableInterval(() => {

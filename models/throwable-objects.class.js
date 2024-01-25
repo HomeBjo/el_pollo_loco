@@ -1,5 +1,4 @@
 class throwableObjects extends MovableObject {
-    ARRAY = new Arrays();
     //  offset = {
     //     top:3,
     //     bottom:3,

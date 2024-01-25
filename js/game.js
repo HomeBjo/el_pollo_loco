@@ -2,6 +2,7 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 let intervallIds = [];
+// let sound = new Sounds();   //  damit es vorher geladen wird z.b. aber dann world = new World(canvas, keyboard, sound); soo und in der world setzen 
 
 function startGame() {
   changeScreen();
@@ -23,10 +24,10 @@ function stopAllSounds() {
   world.sound.stopAllSounds();
 }
 
-function muteAllSounds() {
+function muteAllSoundsIngame() {
   world.sound.muteAllSounds();
   world.character.setVolume(0.0);
-  world.level.enemies[3].setVolume(0.0);
+  world.level.enemies[3].setVolume(0.0);     // einmal testen ob das noch so muss!!
 }
 
 function resetVariable() {
@@ -37,6 +38,10 @@ function resetVariable() {
 // function clearAllIntervals() {
 //     for (let i = 1; i < 9999; i++) window.clearInterval(i);
 //   }                                                                         // dirty version
+
+// function test(){
+//   console.log('lol',this.sound)
+// }
 
 function changeScreen() {
   document.getElementById("startMenu").classList.add("d-none");

@@ -1,6 +1,4 @@
 class Endboss extends MovableObject{
-    ARRAY = new Arrays();
-    sound = new Sounds();
     height =400;
     width =250;
     y=60;
@@ -11,7 +9,7 @@ class Endboss extends MovableObject{
         left:0,
         right:0,
     }
-    // world;  // welt gesetzt fals nötig <
+    world;  // welt gesetzt fals nötig <
     characterPosition=false;
     endbossDead=false;
     hadFirstContact=false;
@@ -37,7 +35,7 @@ class Endboss extends MovableObject{
     }
 
     setVolume(volume){
-        return this.sound.pepe_game_win.volume = volume;
+        return this.world.sound.pepe_game_win.volume = volume;   // testen ob man noch brauch 
       }
    
 
@@ -78,7 +76,7 @@ class Endboss extends MovableObject{
                
                 this.endbossDead=true;
                 if (this.pepe_win_sound) {
-                    this.sound.pepe_game_win.play()   
+                    this.world.sound.pepe_game_win.play()   
                     this.pepe_win_sound=false;
                   } 
                 

@@ -1,5 +1,4 @@
 class MovableObject extends drawableObjects{
-    ARRAY = new Arrays();
     currentImage2 = 0;
     speed = 0.15;
     otherDirection = false;

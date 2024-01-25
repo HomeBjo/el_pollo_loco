@@ -1,6 +1,4 @@
 class Character extends MovableObject {
-  ARRAY = new Arrays();
-  sound = new Sounds();
   width = 110;
   height = 300;
   speed = 7;
@@ -30,17 +28,17 @@ class Character extends MovableObject {
   }
 
   setVolume(volume){
-    return this.sound.walking_sound_pepe.volume = volume;
+    return this.world.sound.walking_sound_pepe.volume = volume;  // testen ob noch brauch 
   }
 
   animate() {
     setStoppableInterval(() => {
-      this.sound.walking_sound_pepe.pause();
+      this.world.sound.walking_sound_pepe.pause();
      
       if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
         //&& this.x < this.world.level.level_end_x)  lvl begrenzung anch rechts   dafür lvl in world eingebunden *2
         this.moveRight();
-        this.sound.walking_sound_pepe.play();
+        this.world.sound.walking_sound_pepe.play();
         this.world.sound.game_music.play();
         this.otherDirection = false;
         this.timeCount = 0;
@@ -49,7 +47,7 @@ class Character extends MovableObject {
       if (this.world.keyboard.LEFT && this.x > -100) {
         // &&thisx 0 für begrenzung
         this.moveLeft();
-        this.sound.walking_sound_pepe.play();
+        this.world.sound.walking_sound_pepe.play();
         this.world.sound.game_music.play();
         this.otherDirection = true;
         this.timeCount = 0;

@@ -18,9 +18,15 @@ class Sounds {
         this.glas_break.volume = 0.3;
         this.endboss_win.volume = 0.3;
         this.walking_sound_pepe.volume = 0.3;
-        this.pepe_game_win.volume = 0.3;
+        this.pepe_game_win.volume = 0.2;
+        this.bottle.volume=0.1;
+        this.coin.volume=0.1;
+        this.intro_endboss.volume=0.4;
+        this.endboss_win.volume=0.1;
+        this.game_music.volume=0.2;
+        this.endboss_hurt.volume=0.2;
+        this.previousVolume = 0.2;   // evt mal als object testen das bei jedem der aktelle stand genommen wird !!  also das jeder sound halt sein eigenes volume hat 1!!
         this.isMuted=false; 
-        this.previousVolume = 0.3;   // evt mal als object testen sons shit drauf !!  also das jeder sound halt sein eigenes volume hat 1!!
     }
 
     stopAllSounds() {

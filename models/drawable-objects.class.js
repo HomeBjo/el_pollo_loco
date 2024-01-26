@@ -1,6 +1,5 @@
 class drawableObjects {                       // im video ell pollo loco 2 mathe  vid 16 statusbar 2 allles auslagern 
-    img;
-                      // hier einmal deklariert damit der bei der vereerbung das mit gibt also können bars darauf zuggreifen 
+    img;                                   // hier einmal deklariert damit der bei der vereerbung das mit gibt also können bars darauf zuggreifen 
     imageChace = {};
     currentImage=0;
     x=120;

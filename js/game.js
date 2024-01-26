@@ -3,14 +3,15 @@ let world;
 let keyboard = new Keyboard();
 let intervallIds = [];
 let muteBotton = false;
-ARRAY = new Arrays();  
+ARRAY = new Arrays(); 
+// let ARRAY;
 // let sound = new Sounds();   //  damit es vorher geladen wird z.b. aber dann world = new World(canvas, keyboard, sound); soo und in der world setzen 
 
 function startGame() {
   changeScreen();
   initLevel();
   canvas = document.getElementById("canvas");
-  world = new World(canvas, keyboard,ARRAY); // auslagern erste stufe video 9 charakter anzeigen
+  world = new World(canvas, keyboard); // auslagern erste stufe video 9 charakter anzeigen
 }
 
 function stopGame() {

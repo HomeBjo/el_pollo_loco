@@ -32,18 +32,47 @@
   </head>
   <body>
     <h1>El Pollo Loco</h1>
-
+     <div class="blackdiv">
+      <img src="img/5_background/rotate.jpg" alt="">
+    </div>
+     
+     
     <div id="startMenu">
       <button class="BtN" onclick="startGame()">start</button>
+     
     </div>
+    <div class="winScreenContainer d-none">
+      <button class="BtN loose" >Again ?</button>
+    </div>
+    <div class="looseScreenContainer d-none">
+      <button class="BtN loose" >Again ?</button>
+    </div>
+   <div class="canvasContainer">
     <canvas id="canvas" width="720" height="480" class="d-none"></canvas>
-    <button class="BtN" onclick="muteAllSoundsIngame()">Mute</button>
+    <div id="mobileControler" class="mobileControler d-none">
+      
+      <div>
+        <img class="mobileBtN" id="BtN-L" src="img/10_keys/links.png" alt="" />
+        <img class="mobileBtN" id="BtN-R" src="img/10_keys/rechts.png" alt=""/>
+        </div>
+        <div id="muteBtNMobile" class="mobileBtN-Mute" onclick="muteAllSoundsIngame();toggleMuteButton('muteBtNMobile') ">Sound Off</div>
+      <div>
+        <img class="mobileBtN" id="BtN-S" src="img/10_keys/thumbnail_space_Small.png" alt=""/>
+        <img class="mobileBtN" id="BtN-D" src="img/10_keys/d.png" alt="" />
+      </div>
+    </div>
+    
+  </div>
+  <div id="muteBtN" class="mobileBtN-Mute imGameMute d-none" onclick="muteAllSoundsIngame();toggleMuteButton('muteBtN') ">Sound Off</div>
+ 
+ 
+    
     <div class="description"><span>How To Play</span></div>
     <div class="descriptionSektion">
       <div class="descriptionContainer">
         <div class="descriptionTitle">Left</div>
         <div class="descriptionButton">
-          <img src="img/10_keys/links.png" alt="" />
+          <img src="img/10_keys/links_Orange.png" alt="" />
         </div>
       </div>
       <div class="descriptionContainer">
@@ -55,25 +84,18 @@
       <div class="descriptionContainer">
         <div class="descriptionTitle">Jump</div>
         <div class="descriptionButton">
-          <img src="img/10_keys/thumbnail_space_Small.png" alt="" />
+          <img src="img/10_keys/space_Orange.png" alt="" />
         </div>
       </div>
       <div class="descriptionContainer">
         <div class="descriptionTitle">Attack</div>
         <div class="descriptionButton">
-          <img src="img/10_keys/D_Weis.png" alt="" />
+          <img src="img/10_keys/d_Orange.png" alt="" />
         </div>
       </div>
     </div>
-    <div class="mobileControler">
-      <div>
-        <img class="mobileBtN" id="BtN-L" src="img/10_keys/links.png" alt="" />
-        <img class="mobileBtN" id="BtN-R" src="img/10_keys/rechts_Orange.png" alt=""/>
-        </div>
-      <div>
-        <img class="mobileBtN" id="BtN-S" src="img/10_keys/thumbnail_space_Small.png" alt=""/>
-        <img class="mobileBtN" id="BtN-D" src="img/10_keys/D_Weis.png" alt="" />
-      </div>
-    </div>
+   
+    <div class="mobileSwitchNotice"></div>
+    
   </body>
 </html>

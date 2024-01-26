@@ -2,6 +2,7 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 let intervallIds = [];
+let muteBotton = false;
 // let sound = new Sounds();   //  damit es vorher geladen wird z.b. aber dann world = new World(canvas, keyboard, sound); soo und in der world setzen 
 
 function startGame() {
@@ -46,7 +47,20 @@ function resetVariable() {
 function changeScreen() {
   document.getElementById("startMenu").classList.add("d-none");
   document.getElementById("canvas").classList.remove("d-none");
+  document.getElementById("muteBtN").classList.remove("d-none");
+  document.getElementById("mobileControler").classList.remove("d-none");
 }
+
+function toggleMuteButton(id) {
+  var muteButton = document.getElementById(id);
+    if (muteButton.innerHTML === "Sound Off") {
+        muteButton.innerHTML = "Sound On";
+    } else {
+        muteButton.innerHTML = "Sound Off";
+    }
+}
+
+
 
 window.addEventListener("keydown", (e) => {
   if (e.keyCode == 39) {

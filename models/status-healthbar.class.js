@@ -10,7 +10,7 @@ class StatusHealthBar extends drawableObjects {
 
     constructor(){
         super();
-        this.loadImages(this.ARRAY.IMAGES_HEALTH_BAR_PEPE);
+        this.loadImages(ARRAY.IMAGES_HEALTH_BAR_PEPE);
         this.x = 5;
         this.y = -15;
         this.width = 200;
@@ -21,7 +21,7 @@ class StatusHealthBar extends drawableObjects {
     //setpercentage(50) von außen auf den wert zugreifen ändern usw
     setpercentage(percentage){
         this.percentage = percentage
-        let path = this.ARRAY.IMAGES_HEALTH_BAR_PEPE[this.resolveImageIndex()];
+        let path = ARRAY.IMAGES_HEALTH_BAR_PEPE[this.resolveImageIndex()];
         this.img =this.imageChace[path]
         
     }

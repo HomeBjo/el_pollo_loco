@@ -11,7 +11,7 @@ class StatusBottleBar extends drawableObjects {
 
     constructor(){
         super();
-        this.loadImages(this.ARRAY.IMAGES_BOTTLE_BAR);
+        this.loadImages(ARRAY.IMAGES_BOTTLE_BAR);
         this.x = 5;
         this.y = 33;
         this.width = 200;
@@ -21,7 +21,7 @@ class StatusBottleBar extends drawableObjects {
 
     setpercentage(percentage){
         this.percentage = percentage
-        let path = this.ARRAY.IMAGES_BOTTLE_BAR[this.resolveImageIndex()];
+        let path = ARRAY.IMAGES_BOTTLE_BAR[this.resolveImageIndex()];
         this.img =this.imageChace[path]
         
     }

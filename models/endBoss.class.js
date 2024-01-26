@@ -24,11 +24,11 @@ class Endboss extends MovableObject{
   
 
     constructor(){
-        super().loadImage(this.ARRAY.IMAGES_START_BOSS[0])
-        this.loadImages(this.ARRAY.IMAGES_START_BOSS);
-        this.loadImages(this.ARRAY.IMAGES_HURT_BOSS);
-        this.loadImages(this.ARRAY.IMAGES_DEAD_BOSS);
-        this.loadImages(this.ARRAY.IMAGES_WALK_BOSS);
+        super().loadImage(ARRAY.IMAGES_START_BOSS[0])
+        this.loadImages(ARRAY.IMAGES_START_BOSS);
+        this.loadImages(ARRAY.IMAGES_HURT_BOSS);
+        this.loadImages(ARRAY.IMAGES_DEAD_BOSS);
+        this.loadImages(ARRAY.IMAGES_WALK_BOSS);
         this.speed = 2.15 + Math.random() * 0.25;
         this.animate();
         
@@ -51,10 +51,10 @@ class Endboss extends MovableObject{
         let i = 0;
         this.enbossAnimationInterval = setStoppableInterval(() => {
             if (i < 8 && !this.endbossDead) {
-                this.playAnimation(this.ARRAY.IMAGES_START_BOSS);
+                this.playAnimation(ARRAY.IMAGES_START_BOSS);
             } else if ((!this.endbossDead && !this.stopMoving)) {
                 
-                this.playAnimation(this.ARRAY.IMAGES_WALK_BOSS);
+                this.playAnimation(ARRAY.IMAGES_WALK_BOSS);
                 this.test=true;
                 
             }
@@ -66,12 +66,12 @@ class Endboss extends MovableObject{
             }
 
             if (this.isHurt()&& !(this.endbossDead)) {
-                this.playAnimation(this.ARRAY.IMAGES_HURT_BOSS);
+                this.playAnimation(ARRAY.IMAGES_HURT_BOSS);
             }
 
             if (this.isDead()) {
             
-                this.playAnimationOnce(this.ARRAY.IMAGES_DEAD_BOSS);
+                this.playAnimationOnce(ARRAY.IMAGES_DEAD_BOSS);
                 
                
                 this.endbossDead=true;

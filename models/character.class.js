@@ -16,12 +16,12 @@ class Character extends MovableObject {
   
   constructor() {
     super().loadImage("img/2_character_pepe/2_walk/W-21.png"); //beim zugreifen auf der func der übergeordneten klasse _movableObjects_ super verwenden
-    this.loadImages(this.ARRAY.IMAGES_WALKING);
-    this.loadImages(this.ARRAY.IMAGES_JUMPING);
-    this.loadImages(this.ARRAY.IMAGES_DEAD);
-    this.loadImages(this.ARRAY.IMAGES_HURT);
-    this.loadImages(this.ARRAY.IMAGES_IDLE);
-    this.loadImages(this.ARRAY.IMAGES_LONG_IDLE);
+    this.loadImages(ARRAY.IMAGES_WALKING);
+    this.loadImages(ARRAY.IMAGES_JUMPING);
+    this.loadImages(ARRAY.IMAGES_DEAD);
+    this.loadImages(ARRAY.IMAGES_HURT);
+    this.loadImages(ARRAY.IMAGES_IDLE);
+    this.loadImages(ARRAY.IMAGES_LONG_IDLE);
     this.applyGravity();
     this.animate();
    
@@ -65,18 +65,18 @@ class Character extends MovableObject {
 
     this.characterAnimationInterval = setStoppableInterval(() => {
       if (this.isDead()) {
-        this.playAnimationOnce(this.ARRAY.IMAGES_DEAD);
+        this.playAnimationOnce(ARRAY.IMAGES_DEAD);
       } else if (this.isHurt()) {
-        this.playAnimation(this.ARRAY.IMAGES_HURT);
+        this.playAnimation(ARRAY.IMAGES_HURT);
         this.timeCount = 0;
       } else if (this.isAboveGround()) {
-        this.playAnimation(this.ARRAY.IMAGES_JUMPING);
+        this.playAnimation(ARRAY.IMAGES_JUMPING);
       } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-        this.playAnimation(this.ARRAY.IMAGES_WALKING);
+        this.playAnimation(ARRAY.IMAGES_WALKING);
       } else if (this.timeCount > 3000 && !this.idleAnimationPlayed) {
-        this.playAnimation(this.ARRAY.IMAGES_LONG_IDLE);
+        this.playAnimation(ARRAY.IMAGES_LONG_IDLE);
       } else {
-        this.playAnimation(this.ARRAY.IMAGES_IDLE);
+        this.playAnimation(ARRAY.IMAGES_IDLE);
       }
     }, 100);
   }

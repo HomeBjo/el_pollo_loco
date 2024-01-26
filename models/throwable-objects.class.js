@@ -12,7 +12,7 @@ class throwableObjects extends MovableObject {
 
     constructor(x, y, otherDirection) {
         super().loadImage('img/6_salsa_bottle/salsa_bottle.png');
-        this.loadImages(this.ARRAY.IMAGES_SPLASH);
+        this.loadImages(ARRAY.IMAGES_SPLASH);
         
         this.x=x;
         this.y=y;
@@ -43,7 +43,7 @@ class throwableObjects extends MovableObject {
   spalshBottle(){
     setStoppableInterval(() => {
     
-        this.playAnimationOnce(this.ARRAY.IMAGES_SPLASH)
+        this.playAnimationOnce(ARRAY.IMAGES_SPLASH)
      
 
 }, 100);}

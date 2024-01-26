@@ -1,4 +1,5 @@
 class World {
+  
   character = new Character();
   level = level1; //auslagern in video 13 objekte und davor die enemies und chicken usw in video 07 klassen anlegen (    clouds =level1.clouds ;enemies =level1.enemies ;backgroundObject =level1.backgroundObject; )  zu dem hier mit level-> level=level1 *2  auslagert in 14 character optimieren zu dieser version
  sound= new Sounds();

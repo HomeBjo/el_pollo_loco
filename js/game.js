@@ -38,6 +38,24 @@ function resetVariable() {
   world.intro_endboss_played = false;
 }
 
+
+function gewonnenanzeige() {
+  document.getElementById("canvas").classList.add("fade-out");
+  setTimeout(function () {
+     document.getElementById("canvas").classList.add("d-none");
+}, 2000);
+    // document.getElementById("canvas").classList.add("d-none");                                // guter andsatzt entweder timing anpassen also d-none da hinzufüegen wen oppp changen sol also erste bild geht runter dan d none und dan kommt other  ODER WIN SCREEN MIT Z INDEX UND POSITION ABSOLUTE!!!  dan bei handy heigh anpassen an vh nicht px und mobile d nonen
+  
+   setTimeout(function () {
+    winScreenContainer.classList.add("show");
+}, 500);
+}
+
+function gewonnenstart() {
+  document.getElementById("winScreenContainer").classList.add("d-none");
+  document.getElementById("canvas").classList.remove("d-none");
+}
+
 // function clearAllIntervals() {
 //     for (let i = 1; i < 9999; i++) window.clearInterval(i);
 //   }                                                                         // dirty version

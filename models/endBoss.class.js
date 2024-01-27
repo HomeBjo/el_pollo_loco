@@ -72,7 +72,8 @@ class Endboss extends MovableObject{
             if (this.isDead()) {
             
                 this.playAnimationOnce(ARRAY.IMAGES_DEAD_BOSS);
-                
+                gewonnenanzeige();
+                stopGame();
                
                 this.endbossDead=true;
                 if (this.pepe_win_sound) {

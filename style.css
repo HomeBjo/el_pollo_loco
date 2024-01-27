@@ -32,7 +32,21 @@ height: 480px;
 width: 720px;
 background-position:center; 
 background-size: 100% 100%;
+opacity: 0.01; /* Starte mit einer Opazität von 0 (unsichtbar) */
+transition: opacity 2s ease-in-out; /* Füge eine Übergangseffekt für die Opazität hinzu */
 }
+
+.winScreenContainer.show {
+   
+
+    opacity: 1; /* Ändere die Opazität auf 1, wenn die Klasse .show hinzugefügt wird */
+}
+  
+.fade-out {
+    opacity: 0;
+    transition: opacity 2s ease; /* Füge einen Übergangseffekt für die Opazität hinzu */
+}
+
 
 .looseScreenContainer{
     background-image: url("img/9_intro_outro_screens/game_over/oh\ no\ you\ lost!.png") ;

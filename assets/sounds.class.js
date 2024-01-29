@@ -11,6 +11,7 @@ class Sounds {
     endboss_hurt = new Audio("audio/endboss_hit_sounds.mp3");
     endboss_win = new Audio("audio/endboss_wins.mp3");
     pepe_game_win = new Audio("audio/pepe_wins.mp3");
+    game_over = new Audio("audio/game_over.mp3");
 
     constructor() {
         this.pain.volume = 0.1;
@@ -25,6 +26,7 @@ class Sounds {
         this.endboss_win.volume=0.1;
         this.game_music.volume=0.3;
         this.endboss_hurt.volume=0.2;
+        this.game_over.volume=0.3;
         this.previousVolume = 0.2;   // evt mal als object testen das bei jedem der aktelle stand genommen wird !!  also das jeder sound halt sein eigenes volume hat 1!!
         this.isMuted=false; 
     }

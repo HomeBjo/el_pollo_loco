@@ -77,6 +77,17 @@ function changeScreen() {
   document.getElementById("mobileControler").classList.remove("d-none");
 }
 
+function restart(id,id2) {
+  document.getElementById(id).classList.add("d-none");
+  document.getElementById("canvas").classList.remove("fade-out");
+  document.getElementById(id2).classList.remove("fade-in");
+  stopAllSounds()
+  stopGame()
+  startGame();
+  
+  
+}
+
 function toggleMuteButton(id) {
   var muteButton = document.getElementById(id);
     if (muteButton.innerHTML === "Sound Off") {

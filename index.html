@@ -42,10 +42,10 @@
      
     </div>
     <div id="winScreenContainer" class="winScreenContainer d-none">
-      <button class="BtN loose" >Again ?</button>
+      <button class="BtN loose"onclick="restart('winScreenContainer');" >Again ?</button>
     </div>
     <div id="looseScreenContainer" class="looseScreenContainer d-none">
-      <button id="loose" class="BtN loose" >Again ?</button>
+      <button id="loose" class="BtN loose" onclick="restart('looseScreenContainer','loose');" >Again ?</button>
     </div>
    <div class="canvasContainer">
     <canvas id="canvas" width="720" height="480" class="d-none"></canvas>

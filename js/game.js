@@ -40,6 +40,7 @@ function resetVariable() {
 
 
 function resultScreen(containerId,buttonId) {
+  document.getElementById("mobileControler").classList.add("d-none"); 
   document.getElementById("canvas").classList.add("fade-out");     // guter andsatzt entweder timing anpassen also d-none da hinzufüegen wen oppp changen sol also erste bild geht runter dan d none und dan kommt other  ODER WIN SCREEN MIT Z INDEX UND POSITION ABSOLUTE!!!  dan bei handy heigh anpassen an vh nicht px und mobile d nonen
   document.getElementById(containerId).classList.remove("d-none");
   document.getElementById(containerId).classList.add("fade-in");

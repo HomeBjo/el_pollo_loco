@@ -66,7 +66,7 @@ class Character extends MovableObject {
     this.characterAnimationInterval = setStoppableInterval(() => {
       if (this.isDead()) {
         this.playAnimationOnce(ARRAY.IMAGES_DEAD);
-        verlorenanzeige('looseScreenContainer','loose')
+        resultScreen('looseScreenContainer','loose')
         this.world.sound.game_over.play();
         stopGame();
       } else if (this.isHurt()) {

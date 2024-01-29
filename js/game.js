@@ -39,10 +39,13 @@ function resetVariable() {
 }
 
 
-function gewonnenanzeige() {
+function gewonnenanzeige(containerId,buttonId) {
   document.getElementById("canvas").classList.add("fade-out");     // guter andsatzt entweder timing anpassen also d-none da hinzufüegen wen oppp changen sol also erste bild geht runter dan d none und dan kommt other  ODER WIN SCREEN MIT Z INDEX UND POSITION ABSOLUTE!!!  dan bei handy heigh anpassen an vh nicht px und mobile d nonen
-  document.getElementById("winScreenContainer").classList.remove("d-none");
-  // document.getElementById("winScreenContainer").classList.add("show");
+  document.getElementById(containerId).classList.remove("d-none");
+  document.getElementById(containerId).classList.add("fade-in");
+  setTimeout(() => {
+    document.getElementById(buttonId).classList.add("fade-in");
+  }, 600);
 
 }
 

@@ -91,3 +91,4 @@ class Character extends MovableObject {
     return this.speedY < 0;
   }
 }
+test

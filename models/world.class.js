@@ -62,11 +62,7 @@ class World {
     this.throwCount = 0;
     const startX = this.character.otherDirection ? this.character.x - 30 : this.character.x + 100;
     const startY = this.character.y + 100;
-    let bottle = new throwableObjects(
-      startX,
-      startY,
-      this.character.otherDirection
-    );
+    let bottle = new throwableObjects(startX,startY,this.character.otherDirection);
     this.throwableObjects.push(bottle);
     this.sound.trow_bottle.play();
     this.thrownBottles--;

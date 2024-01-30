@@ -28,42 +28,6 @@ class drawableObjects {                       // im video ell pollo loco 2 mathe
 
     }
 
-    drawFrame(ctx){
-        if(this instanceof Character || this instanceof Chicken || this instanceof Endboss){
-         ctx.beginPath();
-         ctx.lineWidth = "5";
-         ctx.strokeStyle = "blue";
-         ctx.rect(this.x, this.y, this.width, this.height);
-         ctx.stroke();
-        }
-        if (this instanceof Character || this instanceof Chicken || this instanceof Endboss || this instanceof throwableObjects || this instanceof Coins || this instanceof Bottles) {
-            ctx.beginPath();
-            ctx.lineWidth = "5";
-            ctx.strokeStyle = "red";
-            ctx.rect(
-                this.x + this.offset.left,
-                this.y + this.offset.top,
-                this.width - this.offset.left - this.offset.right,
-                this.height - this.offset.top - this.offset.bottom
-            );
-            ctx.stroke();
-        }
-        // if ( this instanceof Endboss ) {
-
-        //     const image = new Image();           // theo könnte man auch auf world und die klasse zugreifen die da mit new ist oder so     const image = this.worldImage;
-        //     image.src = "img/7_statusbars/2_statusbar_endboss/orange/orange0.png";
-        //     ctx.rect(
-        //     this.x + this.offset.left,
-        //         this.y + this.offset.top,
-        //         this.width - this.offset.left - this.offset.right,
-        //         this.height - this.offset.top - this.offset.bottom
-        //         );
-        //     // Zeichne das Bild auf den Canvas
-        //     ctx.drawImage(image, this.x, this.y, this.width, this.height);
-        // } _<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<falls der endboss leben übersich haben soll anstatt auf der map
-    }
-
-
     loadImages(arr) {
         arr.forEach((path)=> {
         let img = new Image();

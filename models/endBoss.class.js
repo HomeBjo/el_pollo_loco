@@ -72,6 +72,7 @@ class Endboss extends MovableObject{
             if (this.isDead()) {
             
                 this.playAnimationOnce(ARRAY.IMAGES_DEAD_BOSS);
+                this.world.sound.walking_sound_pepe.pause();
                 resultScreen('winScreenContainer','win');
                 stopGame();
                

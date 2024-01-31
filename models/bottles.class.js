@@ -1,7 +1,7 @@
 class Bottles extends MovableObject {
   width = 65;
   height = 65;
-  x = 90;
+
   y = 350;
   offset = {
     top: 1,
@@ -22,7 +22,6 @@ class Bottles extends MovableObject {
     } else {
       this.loadImage(this.IMAGES[1]);
     }
-    this.x= x
-    this.x = x + Math.random() * 1000;
+    this.x = x + Math.random() * 400;
   }
 }

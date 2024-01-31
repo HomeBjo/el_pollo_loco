@@ -12,7 +12,7 @@ class World {
   throwableObjectsClass = new throwableObjects();
   StatusHealthBarEndBoss = new StatusHealthBarEndBoss();
   throwableObjects = [];
-  thrownBottles = 20;
+  thrownBottles = 0;
   thrownCoins = 0;
   intro_endboss_played = false;
   characterPosition = false;
@@ -148,7 +148,7 @@ class World {
   }
 
   endBossReaction() {
-    this.character.hit(100);
+    this.character.hit(50);
     this.StatusHealthBar.setpercentage(this.character.energy);
     this.sound.pain.play();
   }

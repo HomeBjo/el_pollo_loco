@@ -1,8 +1,8 @@
 class StatusBottleBar extends drawableObjects {
-  currentStatus_max = 4;
-  currentStatus_80 = 3;
-  currentStatus_60 = 2;
-  currentStatus_40 = 1;
+  currentStatus_max = 18;
+  currentStatus_80 = 15;
+  currentStatus_60 = 12;
+  currentStatus_40 = 6;
   currentStatus_low = 1;
 
   percentage = 100;

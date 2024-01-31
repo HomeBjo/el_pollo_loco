@@ -13,6 +13,10 @@ class Coins extends MovableObject {
 
   IMAGES = ["img/7_statusbars/3_icons/icon_coin.png"];
 
+  /**
+   * Constructs a Coins object with the specified initial x-coordinate.
+   * @param {number} x - The initial x-coordinate of the coins.
+   */
   constructor(x) {
     super().loadImage("img/7_statusbars/3_icons/icon_coin.png");
     this.x=x

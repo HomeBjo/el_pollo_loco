@@ -1,3 +1,7 @@
+/**
+ * Class representing the status bottle bar in the game.
+ * @extends drawableObjects
+ */
 class StatusBottleBar extends drawableObjects {
   currentStatus_max = 18;
   currentStatus_80 = 15;
@@ -7,6 +11,9 @@ class StatusBottleBar extends drawableObjects {
 
   percentage = 100;
 
+  /**
+   * Creates a StatusBottleBar instance.
+   */
   constructor() {
     super();
     this.loadImages(ARRAY.IMAGES_BOTTLE_BAR);
@@ -17,6 +24,10 @@ class StatusBottleBar extends drawableObjects {
     this.setpercentage(0);
   }
 
+  /**
+   * Sets the percentage of the status bottle bar and updates the displayed image.
+   * @param {number} percentage - The percentage value to set.
+   */
   setpercentage(percentage) {
     this.percentage = percentage;
     let path = ARRAY.IMAGES_BOTTLE_BAR[this.resolveImageIndex()];

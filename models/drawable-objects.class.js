@@ -7,11 +7,19 @@ class drawableObjects {
   height = 150;
   width = 100;
 
+  /**
+   * Loads an image from the specified path.
+   * @param {string} path - The path to the image.
+   */
   loadImage(path) {
     this.img = new Image();
     this.img.src = path;
   }
 
+  /**
+   * Draws the loaded image on the canvas context.
+   * @param {CanvasRenderingContext2D} ctx - The canvas context.
+   */
   draw(ctx) {
     try {
       ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
@@ -21,6 +29,10 @@ class drawableObjects {
     }
   }
 
+  /**
+   * Loads multiple images into the image cache.
+   * @param {string[]} arr - An array of image paths.
+   */
   loadImages(arr) {
     arr.forEach((path) => {
       let img = new Image();
@@ -29,6 +41,10 @@ class drawableObjects {
     });
   }
 
+  /**
+   * Resolves the image index based on the percentage values.
+   * @returns {number} - The resolved image index.
+   */
   resolveImageIndex() {
     if (this.percentage == this.currentStatus_max) {
       return 5;

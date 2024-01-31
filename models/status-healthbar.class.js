@@ -1,3 +1,7 @@
+/**
+ * Class representing the status health bar for the player character in the game.
+ * @extends drawableObjects
+ */
 class StatusHealthBar extends drawableObjects {
   currentStatus_max = 100;
   currentStatus_80 = 80;
@@ -7,6 +11,9 @@ class StatusHealthBar extends drawableObjects {
 
   percentage = 100;
 
+  /**
+   * Creates a StatusHealthBar instance.
+   */
   constructor() {
     super();
     this.loadImages(ARRAY.IMAGES_HEALTH_BAR_PEPE);
@@ -17,6 +24,10 @@ class StatusHealthBar extends drawableObjects {
     this.setpercentage(100);
   }
 
+  /**
+   * Sets the percentage of the status health bar for the player character and updates the displayed image.
+   * @param {number} percentage - The percentage value to set.
+   */
   setpercentage(percentage) {
     this.percentage = percentage;
     let path = ARRAY.IMAGES_HEALTH_BAR_PEPE[this.resolveImageIndex()];

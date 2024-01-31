@@ -289,7 +289,7 @@ class World {
   }
 
   characterPositionBossRange() {
-    return this.character.x >= 1000 && !this.intro_endboss_played;
+    return this.character.x >= 3000 && !this.intro_endboss_played;
   }
 
   bossReaction() {
@@ -298,7 +298,7 @@ class World {
   }
 
   characterStartFight() {
-    return this.character.x >= 1650;
+    return this.character.x >= 4700;
   }
 
   showBossHealth() {

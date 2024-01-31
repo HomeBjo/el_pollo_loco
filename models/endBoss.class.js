@@ -2,7 +2,7 @@ class Endboss extends MovableObject {
   height = 400;
   width = 250;
   y = 60;
-  x = 2270;
+  x = 5170;
   offset = {
     top: 100,
     bottom: 0,
@@ -23,7 +23,7 @@ class Endboss extends MovableObject {
     this.loadImages(ARRAY.IMAGES_HURT_BOSS);
     this.loadImages(ARRAY.IMAGES_DEAD_BOSS);
     this.loadImages(ARRAY.IMAGES_WALK_BOSS);
-    this.speed = 2.15 + Math.random() * 0.25;
+    this.speed = 2.55 + Math.random() * 0.25;
     this.animate();
   }
 

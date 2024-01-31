@@ -185,6 +185,10 @@ h1 {
     justify-content: center;
   }
 
+  .restarButtonContainer{
+    display: none;
+  }
+
   canvas {
     width: 100vw;
   }
@@ -217,6 +221,9 @@ h1 {
 @media only screen and (max-height: 540px) {
   .blackdiv {
     display: none;
+  }
+  .restarButtonContainer{
+    display: flex;
   }
   canvas {
     height: 100vh;

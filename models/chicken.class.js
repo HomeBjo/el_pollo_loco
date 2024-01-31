@@ -35,7 +35,7 @@ class Chicken extends MovableObject {
 
     setStoppableInterval(() => {
       if (!this.isDead) {
-        this.playAnimation(this.IMAGES_WALKING); // video 16  funktioins merhmals da auf eine funktion verkleinern also auslagern und übergeben bilder *3
+        this.playAnimation(this.IMAGES_WALKING);
       }
     }, 200);
   }
@@ -44,10 +44,10 @@ class Chicken extends MovableObject {
     this.isDead = true;
     this.playAnimation(this.IMAGES_DIE);
     this.offset = {
-        top: 200,
-        bottom: 0,
-        left: 0,
-        right: 0,
+      top: 200,
+      bottom: 0,
+      left: 0,
+      right: 0,
     };
-}
+  }
 }

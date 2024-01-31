@@ -11,10 +11,8 @@ class Coins extends MovableObject {
   };
   isDead = false;
 
-  IMAGES = [
-    "img/7_statusbars/3_icons/icon_coin.png",
-  ];
- 
+  IMAGES = ["img/7_statusbars/3_icons/icon_coin.png"];
+
   constructor() {
     super().loadImage("img/7_statusbars/3_icons/icon_coin.png");
     this.setRandomPosition();

@@ -189,6 +189,10 @@ h1 {
     display: none;
   }
 
+  .loose {
+    display: none;
+  }
+
   canvas {
     width: 100vw;
   }
@@ -224,6 +228,9 @@ h1 {
   }
   .restarButtonContainer{
     display: flex;
+  }
+  .loose {
+    display:flex;
   }
   canvas {
     height: 100vh;

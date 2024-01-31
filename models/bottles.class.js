@@ -15,13 +15,14 @@ class Bottles extends MovableObject {
     "img/6_salsa_bottle/2_salsa_bottle_on_ground.png",
   ];
 
-  constructor() {
+  constructor(x) {
     super();
     if (Math.random() < 0.5) {
       this.loadImage(this.IMAGES[0]);
     } else {
       this.loadImage(this.IMAGES[1]);
     }
-    this.x = 300 + Math.random() * 1000;
+    this.x= x
+    this.x = x + Math.random() * 1000;
   }
 }

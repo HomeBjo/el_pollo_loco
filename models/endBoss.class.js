@@ -79,13 +79,13 @@ class Endboss extends MovableObject {
 
   endGameWin() {
     this.playAnimationOnce(ARRAY.IMAGES_DEAD_BOSS);
-    this.world.sound.walking_sound_pepe.pause();
     resultScreen("winScreenContainer", "win");
     stopGame();
     this.endbossDead = true;
     if (this.pepe_win_sound) {
       this.world.sound.pepe_game_win.play();
       this.pepe_win_sound = false;
+     this.world.sound.walking_sound_pepe.pause();
     }
   }
 }

@@ -55,5 +55,6 @@ level1 = new Level(
       ],
       [new Coins(120), new Coins(200), new Coins(400), new Coins(450), new Coins(700), new Coins(1100), new Coins(1200), new Coins(1300), new Coins(1700), new Coins(1800), new Coins(2000)
         , new Coins(2100), new Coins(2500), new Coins(2550), new Coins(2800), new Coins(3000), new Coins(3400), new Coins(3600), new Coins(4000), new Coins(4100)],
-      [new Bottles(), new Bottles(), new Bottles(), new Bottles(),new Bottles(),new Bottles(),new Bottles()]
-);}
+      [new Bottles(135), new Bottles(145), new Bottles(300), new Bottles(380), new Bottles(450), new Bottles(460), new Bottles(560), new Bottles(620), new Bottles(1200), new Bottles(1700), new Bottles(2100)
+        , new Bottles(2400), new Bottles(2700), new Bottles(3100), new Bottles(3150), new Bottles(3180), new Bottles(400), new Bottles(4300)]
+);} 

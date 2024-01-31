@@ -298,7 +298,7 @@ class World {
   }
 
   characterStartFight() {
-    return this.character.x >= 4700;
+    return this.character.x >= 4670;
   }
 
   showBossHealth() {

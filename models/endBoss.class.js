@@ -42,8 +42,7 @@ class Endboss extends MovableObject {
       i++;
       if (this.canCharacterSeeBoss()) {
         i = 0;
-        this.hadFirstContact = true;
-      }
+        this.hadFirstContact = true; }
       if (this.hitEndBoss()) 
       this.playAnimation(ARRAY.IMAGES_HURT_BOSS);
       if (this.isDead()) 

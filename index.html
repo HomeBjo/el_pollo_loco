@@ -1,101 +1,99 @@
 <!DOCTYPE html>
 <html translate="no" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="font.css" />
-
-    <title>El pollo loco</title>
-
-    <script src="models/drawable-objects.class.js"></script>
-    <script src="models/movable-object.class.js"></script>
-    <script src="models/character.class.js"></script>
-    <script src="assets/arrays.class.js"></script>
-    <script src="assets/sounds.class.js"></script>
-    <script src="models/chicken.class.js"></script>
-    <script src="models/cloud.class.js"></script>
-    <script src="models/coins.class.js"></script>
-    <script src="models/bottles.class.js"></script>
-    <script src="models/status-healthbar.class.js"></script>
-    <script src="models/status-bottlebar.class.js"></script>
-    <script src="models/status-coinbar.class.js"></script>
-    <script src="models/status-healthbar-end-boss.class.js"></script>
-    <script src="models/world.class.js"></script>
-    <script src="models/background-object.class.js"></script>
-    <script src="models/keyboard.class.js"></script>
-    <script src="models/level.class.js"></script>
-    <script src="models/throwable-objects.class.js"></script>
-    <script src="models/endBoss.class.js"></script>
-    <script src="levels/level1.js"></script>
-    <script src="js/game.js"></script>
-  </head>
-  <body>
-    <h1>El Pollo Loco</h1>
-     <div class="blackdiv">
-      <img src="img/5_background/rotate.jpg" alt="">
-    </div>
-     
-     
-    <div id="startMenu">
-      <button class="BtN" onclick="startGame()">start</button>
-     
-    </div>
-    <div id="winScreenContainer" class="winScreenContainer d-none">
-      <button id="win" class="BtN loose"onclick="restart('winScreenContainer','win');" >Again ?</button>
-    </div>
-    <div id="looseScreenContainer" class="looseScreenContainer d-none">
-      <div class="restarButtonContainer"><button id="loose" class="BtN loose" onclick="restart('looseScreenContainer','loose');" >Again ?</button></div>
-    </div>
-   <div class="canvasContainer">
-    <canvas id="canvas" width="720" height="480" class="d-none"></canvas>
-    <div id="mobileControler" class="mobileControler d-none">
-      
-      <div>
-        <img class="mobileBtN" id="BtN-L" src="img/10_keys/links.png" alt="" />
-        <img class="mobileBtN" id="BtN-R" src="img/10_keys/rechts.png" alt=""/>
-        </div>
-        <div id="muteBtNMobile" class="mobileBtN-Mute" onclick="muteAllSoundsIngame();toggleMuteButton('muteBtNMobile') ">Sound Off</div>
-      <div>
-        <img class="mobileBtN" id="BtN-S" src="img/10_keys/thumbnail_space_Small.png" alt=""/>
-        <img class="mobileBtN" id="BtN-D" src="img/10_keys/d.png" alt="" />
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="font.css" />
+      <title>El pollo loco</title>
+      <script src="models/drawable-objects.class.js"></script>
+      <script src="models/movable-object.class.js"></script>
+      <script src="models/character.class.js"></script>
+      <script src="assets/arrays.class.js"></script>
+      <script src="assets/sounds.class.js"></script>
+      <script src="models/chicken.class.js"></script>
+      <script src="models/cloud.class.js"></script>
+      <script src="models/coins.class.js"></script>
+      <script src="models/bottles.class.js"></script>
+      <script src="models/status-healthbar.class.js"></script>
+      <script src="models/status-bottlebar.class.js"></script>
+      <script src="models/status-coinbar.class.js"></script>
+      <script src="models/status-healthbar-end-boss.class.js"></script>
+      <script src="models/world.class.js"></script>
+      <script src="models/background-object.class.js"></script>
+      <script src="models/keyboard.class.js"></script>
+      <script src="models/level.class.js"></script>
+      <script src="models/throwable-objects.class.js"></script>
+      <script src="models/endBoss.class.js"></script>
+      <script src="levels/level1.js"></script>
+      <script src="js/game.js"></script>
+   </head>
+   <body>
+      <h1>El Pollo Loco</h1>
+      <div class="blackdiv">
+         <img src="img/5_background/rotate.jpg" alt="" />
       </div>
-    </div>
-    
-  </div>
-  <div id="muteBtN" class="mobileBtN-Mute imGameMute d-none" onclick="muteAllSoundsIngame();toggleMuteButton('muteBtN') ">Sound Off</div>
- 
- 
-    
-    <div class="description"><span>How To Play</span></div>
-    <div class="descriptionSektion">
-      <div class="descriptionContainer">
-        <div class="descriptionTitle">Left</div>
-        <div class="descriptionButton">
-          <img src="img/10_keys/links_Orange.png" alt="" />
-        </div>
+      <div id="startMenu">
+         <button class="BtN" onclick="startGame()">start</button>
       </div>
-      <div class="descriptionContainer">
-        <div class="descriptionTitle">Right</div>
-        <div class="descriptionButton">
-          <img src="img/10_keys/rechts_Orange.png" alt="" />
-        </div>
+      <div id="winScreenContainer" class="winScreenContainer d-none">
+         <button id="win" class="BtN loose" onclick="restart('winScreenContainer','win');">
+          Again ?
+         </button>
       </div>
-      <div class="descriptionContainer">
-        <div class="descriptionTitle">Jump</div>
-        <div class="descriptionButton">
-          <img src="img/10_keys/space_Orange.png" alt="" />
-        </div>
+      <div id="looseScreenContainer" class="looseScreenContainer d-none">
+         <div class="restarButtonContainer">
+            <button id="loose" class="BtN loose" onclick="restart('looseScreenContainer','loose');">
+            Again ?
+            </button>
+         </div>
       </div>
-      <div class="descriptionContainer">
-        <div class="descriptionTitle">Attack</div>
-        <div class="descriptionButton">
-          <img src="img/10_keys/d_Orange.png" alt="" />
-        </div>
+      <div class="canvasContainer">
+         <canvas id="canvas" width="720" height="480" class="d-none"></canvas>
+         <div id="mobileControler" class="mobileControler d-none">
+            <div>
+               <img class="mobileBtN" id="BtN-L" src="img/10_keys/links.png" alt=""/>
+               <img class="mobileBtN" id="BtN-R" src="img/10_keys/rechts.png" alt=""/>
+            </div>
+            <div id="muteBtNMobile" class="mobileBtN-Mute" onclick="muteAllSoundsIngame();toggleMuteButton('muteBtNMobile') ">
+               Sound Off
+            </div>
+            <div>
+               <img class="mobileBtN" id="BtN-S" src="img/10_keys/thumbnail_space_Small.png" alt=""/>
+               <img class="mobileBtN" id="BtN-D" src="img/10_keys/d.png" alt="" />
+            </div>
+         </div>
       </div>
-    </div>
-   
-    <div class="mobileSwitchNotice"></div>
-    
-  </body>
+      <div id="muteBtN" class="mobileBtN-Mute imGameMute d-none" onclick="muteAllSoundsIngame();toggleMuteButton('muteBtN') ">
+         Sound Off
+      </div>
+      <div class="description"><span>How To Play</span></div>
+      <div class="descriptionSektion">
+         <div class="descriptionContainer">
+            <div class="descriptionTitle">Left</div>
+            <div class="descriptionButton">
+               <img src="img/10_keys/links_Orange.png" alt="" />
+            </div>
+         </div>
+         <div class="descriptionContainer">
+            <div class="descriptionTitle">Right</div>
+            <div class="descriptionButton">
+               <img src="img/10_keys/rechts_Orange.png" alt="" />
+            </div>
+         </div>
+         <div class="descriptionContainer">
+            <div class="descriptionTitle">Jump</div>
+            <div class="descriptionButton">
+               <img src="img/10_keys/space_Orange.png" alt="" />
+            </div>
+         </div>
+         <div class="descriptionContainer">
+            <div class="descriptionTitle">Attack</div>
+            <div class="descriptionButton">
+               <img src="img/10_keys/d_Orange.png" alt="" />
+            </div>
+         </div>
+      </div>
+      <div class="mobileSwitchNotice"></div>
+   </body>
 </html>

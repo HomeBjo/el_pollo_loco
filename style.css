@@ -1,290 +1,254 @@
-body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url('img/5_background/3.png');
-    /* background-position: center; */
-    justify-content: center;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-size: 100% 125%;
-    font-family: 'zabras',Arial, Helvetica, sans-serif;
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("img/5_background/3.png");
+  justify-content: center;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 125%;
+  font-family: "zabras", Arial, Helvetica, sans-serif;
 }
 h1 {
-    font-size: 64px;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0,0.5);
-    
+  font-size: 64px;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
-#startMenu{
-    background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');
-    background-size: cover;
-    height: 480px;
-    width: 720px;
-    background-position:center; 
-    background-size: 100% 100%;
+#startMenu {
+  background-image: url("img/9_intro_outro_screens/start/startscreen_2.png");
+  background-size: cover;
+  height: 480px;
+  width: 720px;
+  background-position: center;
+  background-size: 100% 100%;
 }
-.winScreenContainer{
-background-image: url("img/9_intro_outro_screens/game_over/game over!.png") ;
-background-size: cover;
-position: absolute;
-height: 480px;
-width: 720px;
-background-position:center; 
-background-size: 100% 100%;
+.winScreenContainer {
+  background-image: url("img/9_intro_outro_screens/game_over/game over!.png");
+  background-size: cover;
+  position: absolute;
+  height: 480px;
+  width: 720px;
+  background-position: center;
+  background-size: 100% 100%;
 }
 
 .fade-out {
-    opacity: 0;
-    transition: opacity 4s ease; 
+  opacity: 0;
+  transition: opacity 4s ease;
 }
 
 .fade-in {
-    opacity: 1!important;
+  opacity: 1 !important;
 }
 
-
-
-.looseScreenContainer{
-    background-image: url("img/9_intro_outro_screens/game_over/oh no you lost!.png") ;
-    background-size: cover;
-    position: absolute;
-    height: 480px;
-    width: 720px;
-    background-position:center; 
-    background-size: 100% 100%;
-    transition: opacity 4s ease; 
-    
+.looseScreenContainer {
+  background-image: url("img/9_intro_outro_screens/game_over/oh no you lost!.png");
+  background-size: cover;
+  position: absolute;
+  height: 480px;
+  width: 720px;
+  background-position: center;
+  background-size: 100% 100%;
+  transition: opacity 4s ease;
 }
 
-/* .mobileSwitchNotice{
-    background-image: url('img/5_background/');
-} */
-
-.BtN{
-    position:relative;
-    width: auto;
-    display:inline-block;
-    color:#ecf0f1;
-    text-decoration:none;
-    border-radius:5px;
-    border:solid 1px #f39c12;
-    background:#e67e22;
-    text-align:center;
-    padding:16px 18px 14px;
-    margin: 12px;
-    text-transform: uppercase;
-    font-weight: 700;
-    -webkit-transition: all 0.1s;
-    -moz-transition: all 0.1s;
-    transition: all 0.1s;
-    font-family: 'Courier New', Courier, monospace;
-    -webkit-box-shadow: 0px 6px 0px #d35400;
-    -moz-box-shadow: 0px 6px 0px #d35400;
-    box-shadow: 0px 6px 3px #d35400;
- 
+.BtN {
+  position: relative;
+  width: auto;
+  display: inline-block;
+  color: #ecf0f1;
+  text-decoration: none;
+  border-radius: 5px;
+  border: solid 1px #f39c12;
+  background: #e67e22;
+  text-align: center;
+  padding: 16px 18px 14px;
+  margin: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+  font-family: "Courier New", Courier, monospace;
+  -webkit-box-shadow: 0px 6px 0px #d35400;
+  -moz-box-shadow: 0px 6px 0px #d35400;
+  box-shadow: 0px 6px 3px #d35400;
 }
 
-
-.loose{
-    z-index: 1;
-    opacity: 0.1;
-    transition: opacity 4s ease;
-    
+.loose {
+  z-index: 1;
+  opacity: 0.1;
+  transition: opacity 4s ease;
 }
 
-
-.BtN:active{
-    -webkit-box-shadow: 0px 2px 0px #d35400;
-    -moz-box-shadow: 0px 2px 0px #d35400;
-    box-shadow: 0px 2px 0px #d35400;
-    position:relative;
-    top:4px;
-   
+.BtN:active {
+  -webkit-box-shadow: 0px 2px 0px #d35400;
+  -moz-box-shadow: 0px 2px 0px #d35400;
+  box-shadow: 0px 2px 0px #d35400;
+  position: relative;
+  top: 4px;
 }
 .BtN:hover {
-    margin: 14px;
-    padding: 17px 20px; 
-    font-size: 16px;
-    cursor: pointer;
-    
+  margin: 14px;
+  padding: 17px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
-.canvasContainer{
-    display: flex;
+.canvasContainer {
+  display: flex;
 }
 #canvas {
-    border-color:black ;
-    box-shadow: 0px 0px 0px 3px black;
-    background-color: black;
-    
-   
+  border-color: black;
+  box-shadow: 0px 0px 0px 3px black;
+  background-color: black;
 }
-.d-none{
-    display: none!important;
+.d-none {
+  display: none !important;
 }
-.description{
-    font-size: 45px;
+.description {
+  font-size: 45px;
 }
-.descriptionSektion{
-display: flex;
-/* justify-content: space-around; */
-
-/* position: absolute; */
-/* top: 763px; */           /*Smartphones-----------------*/
+.descriptionSektion {
+  display: flex;
 }
 
-.descriptionContainer{
-    display: flex;
+.descriptionContainer {
+  display: flex;
 }
 
-.descriptionTitle{
-    /* display: flex;
-    justify-content: center; */
-    font-size: 32px;
+.descriptionTitle {
+  font-size: 32px;
 }
 
-.descriptionButton{
-    display: flex;
-    height: 100px;
+.descriptionButton {
+  display: flex;
+  height: 100px;
 }
-.mobileControler{
-    position: absolute;
-    bottom: 2px;
-    width: 100vw;
-    justify-content: space-between;
-    display: flex;
-    display: none;
-}
-
-.mobileBtN{
-    height: 58px;
-    top: 281px;
-    
-}
-.mobileBtN-Mute{
-      display: flex;
-      align-items: center;
-    }
-.imGameMute{
-    
-    position: relative;
-    display: flex;
-    justify-content: center;
-    bottom: 42px;
-    font-size: 22px;
-             
+.mobileControler {
+  position: absolute;
+  bottom: 2px;
+  width: 100vw;
+  justify-content: space-between;
+  display: flex;
+  display: none;
 }
 
+.mobileBtN {
+  height: 58px;
+  top: 281px;
+}
+.mobileBtN-Mute {
+  display: flex;
+  align-items: center;
+}
+.imGameMute {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  bottom: 42px;
+  font-size: 22px;
+}
 
 .restarButtonContainer {
-    display: flex;
-    justify-content: center;
-    top: 320px;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  top: 320px;
+  position: relative;
 }
-.blackdiv{
-    height: 100vh;
-    width: 100vw;
-    color: black;
-    background:black ;
-    position: absolute;
-    z-index: 1;
-    display: none;
-    background-position:center; 
-    background-size: cover;
+.blackdiv {
+  height: 100vh;
+  width: 100vw;
+  color: black;
+  background: black;
+  position: absolute;
+  z-index: 1;
+  display: none;
+  background-position: center;
+  background-size: cover;
 }
-.blackdiv img{
-    width: -webkit-fill-available;
+.blackdiv img {
+  width: -webkit-fill-available;
 }
-
-
-
-
 
 @media screen and (max-width: 980px) {
-    .descriptionButton  {
-      
-        height: 69px;
-     
-    }}
+  .descriptionButton {
+    height: 69px;
+  }
+}
 
 /*Smartphones-----------------*/
-@media only screen and (max-width:1000px){
-    .blackdiv{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    canvas{
-        width: 100vw;
-    }
-    #startMenu{
-        width: 100vw;
-    }
-    
-    h1{
-        display: none;
-    }
-    .description{
-        display: none;
-    }
-    .descriptionSektion{
-        display: none;
-    }
-    .imGameMute{
-        display: none;
+@media only screen and (max-width: 1000px) {
+  .blackdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    }
-    .looseScreenContainer{
-        width: 100vw;
-        height: 100vh;
-    }
+  canvas {
+    width: 100vw;
+  }
+  #startMenu {
+    width: 100vw;
+  }
 
-    .winScreenContainer{
-        height: 100vh;
-        width: 100vw;
-    }
+  h1 {
+    display: none;
+  }
+  .description {
+    display: none;
+  }
+  .descriptionSektion {
+    display: none;
+  }
+  .imGameMute {
+    display: none;
+  }
+  .looseScreenContainer {
+    width: 100vw;
+    height: 100vh;
+  }
 
+  .winScreenContainer {
+    height: 100vh;
+    width: 100vw;
+  }
 }
-@media only screen and (max-height:540px){
-    .blackdiv {
-        display: none;
-    }
-    canvas{
-        height: 100vh;
-    }
-    #startMenu{
-        height: 100vh;
-    }
-    h1{
-        display: none;
-    }
-    .description{
-        display: none;
-    }
-    .descriptionSektion{
-        display: none;
-    }
-    .imGameMute{
-        display: none;
-    }
-    .mobileControler{
+@media only screen and (max-height: 540px) {
+  .blackdiv {
+    display: none;
+  }
+  canvas {
+    height: 100vh;
+  }
+  #startMenu {
+    height: 100vh;
+  }
+  h1 {
+    display: none;
+  }
+  .description {
+    display: none;
+  }
+  .descriptionSektion {
+    display: none;
+  }
+  .imGameMute {
+    display: none;
+  }
+  .mobileControler {
+    display: flex;
+  }
+  .looseScreenContainer {
+    width: 100vw;
+    height: 100vh;
+  }
 
-        display: flex;
-    }
-    .looseScreenContainer{
-        width: 100vw;
-        height: 100vh;
-    }
-
-    .winScreenContainer{
-        height: 100vh;
-        width: 100vw;
-    }
-    .restarButtonContainer{
-        top: 284px;
-    }
-    
+  .winScreenContainer {
+    height: 100vh;
+    width: 100vw;
+  }
+  .restarButtonContainer {
+    top: 284px;
+  }
 }

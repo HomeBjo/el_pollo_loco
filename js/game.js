@@ -3,15 +3,13 @@ let world;
 let keyboard = new Keyboard();
 let intervallIds = [];
 let muteBotton = false;
-ARRAY = new Arrays(); 
-// let ARRAY;
-// let sound = new Sounds();   //  damit es vorher geladen wird z.b. aber dann world = new World(canvas, keyboard, sound); soo und in der world setzen 
+ARRAY = new Arrays();
 
 function startGame() {
   changeScreen();
   initLevel();
   canvas = document.getElementById("canvas");
-  world = new World(canvas, keyboard); // auslagern erste stufe video 9 charakter anzeigen
+  world = new World(canvas, keyboard);
 }
 
 function stopGame() {
@@ -29,8 +27,6 @@ function stopAllSounds() {
 
 function muteAllSoundsIngame() {
   world.sound.muteAllSounds();
-  // world.character.setVolume(0.0);
-  // world.level.enemies[3].setVolume(0.0);     // einmal testen ob das noch so muss!!
 }
 
 function resetVariable() {
@@ -38,30 +34,20 @@ function resetVariable() {
   world.intro_endboss_played = false;
 }
 
-
-function resultScreen(containerId,buttonId) {
-  document.getElementById("mobileControler").classList.add("d-none"); 
-  document.getElementById("canvas").classList.add("fade-out");     // guter andsatzt entweder timing anpassen also d-none da hinzufüegen wen oppp changen sol also erste bild geht runter dan d none und dan kommt other  ODER WIN SCREEN MIT Z INDEX UND POSITION ABSOLUTE!!!  dan bei handy heigh anpassen an vh nicht px und mobile d nonen
+function resultScreen(containerId, buttonId) {
+  document.getElementById("mobileControler").classList.add("d-none");
+  document.getElementById("canvas").classList.add("fade-out");
   document.getElementById(containerId).classList.remove("d-none");
   document.getElementById(containerId).classList.add("fade-in");
   setTimeout(() => {
     document.getElementById(buttonId).classList.add("fade-in");
   }, 600);
-
 }
 
 function gewonnenstart() {
   document.getElementById("winScreenContainer").classList.add("d-none");
   document.getElementById("canvas").classList.remove("d-none");
 }
-
-// function clearAllIntervals() {
-//     for (let i = 1; i < 9999; i++) window.clearInterval(i);
-//   }                                                                         // dirty version
-
-// function test(){
-//   console.log('lol',this.sound)
-// }
 
 function changeScreen() {
   document.getElementById("startMenu").classList.add("d-none");
@@ -70,27 +56,23 @@ function changeScreen() {
   document.getElementById("mobileControler").classList.remove("d-none");
 }
 
-function restart(id,id2) {
+function restart(id, id2) {
   document.getElementById(id).classList.add("d-none");
   document.getElementById("canvas").classList.remove("fade-out");
   document.getElementById(id2).classList.remove("fade-in");
-  stopAllSounds()
-  stopGame()
+  stopAllSounds();
+  stopGame();
   startGame();
-  
-  
 }
 
 function toggleMuteButton(id) {
   var muteButton = document.getElementById(id);
-    if (muteButton.innerHTML === "Sound Off") {
-        muteButton.innerHTML = "Sound On";
-    } else {
-        muteButton.innerHTML = "Sound Off";
-    }
+  if (muteButton.innerHTML === "Sound Off") {
+    muteButton.innerHTML = "Sound On";
+  } else {
+    muteButton.innerHTML = "Sound Off";
+  }
 }
-
-
 
 window.addEventListener("keydown", (e) => {
   if (e.keyCode == 39) {
@@ -149,46 +131,43 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("BtN-L").addEventListener("touchend", (e) => {
-      e.preventDefault();
-      keyboard.LEFT = false;
-    });
+  document.getElementById("BtN-L").addEventListener("touchend", (e) => {
+    e.preventDefault();
+    keyboard.LEFT = false;
   });
-  
-  document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("BtN-L").addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      keyboard.LEFT = true;
-    });
-  });
+});
 
-  
-  document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("BtN-S").addEventListener("touchend", (e) => {
-      e.preventDefault();
-      keyboard.SPACE = false;
-    });
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById("BtN-L").addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    keyboard.LEFT = true;
   });
-  
-  document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("BtN-S").addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      keyboard.SPACE = true;
-    });
-  });
+});
 
-  
-  document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("BtN-D").addEventListener("touchend", (e) => {
-      e.preventDefault();
-      keyboard.D = false;
-    });
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById("BtN-S").addEventListener("touchend", (e) => {
+    e.preventDefault();
+    keyboard.SPACE = false;
   });
-  
-  document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("BtN-D").addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      keyboard.D = true;
-    });
+});
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById("BtN-S").addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    keyboard.SPACE = true;
   });
-  
+});
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById("BtN-D").addEventListener("touchend", (e) => {
+    e.preventDefault();
+    keyboard.D = false;
+  });
+});
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById("BtN-D").addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    keyboard.D = true;
+  });
+});

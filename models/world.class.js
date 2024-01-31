@@ -302,7 +302,7 @@ class World {
   }
 
   showBossHealth() {
-    this.level.enemies[3].characterPosition = true;
+    this.level.enemies[13].characterPosition = true;
     this.StatusHealthBarEndBoss.updateHealthBarPosition();
   }
 }

@@ -42,30 +42,21 @@ class Endboss extends MovableObject{
    
 
     animate() { 
-        setStoppableInterval(() => {
-            if (!this.endbossDead && this.hadFirstContact && i > 8 && !this.stopMoving ) {
-              this.moveLeft();
-            }
-          }, 1000 / 60);
+        setStoppableInterval(() => this.moveEndboss(i), 1000 / 60);
 
         let i = 0;
-        this.enbossAnimationInterval = setStoppableInterval(() => {
-            if (i < 8 && !this.endbossDead) {
+         setStoppableInterval(() => {
+            if (this.canSeeBoss(i)) 
                 this.playAnimation(ARRAY.IMAGES_START_BOSS);
-            } else if ((!this.endbossDead && !this.stopMoving)) {
-                
+             else if (this.canMoveBoss())
                 this.playAnimation(ARRAY.IMAGES_WALK_BOSS);
-                this.test=true;
-                
-            }
             i++;
 
-            if (this.characterPosition && !this.hadFirstContact) {
+            if (this.canCharacterSeeBoss()) {
                 i = 0;
                 this.hadFirstContact=true;
             }
-
-            if (this.isHurt()&& !(this.endbossDead)) {
+            if (this.hitEndBoss()) {
                 this.playAnimation(ARRAY.IMAGES_HURT_BOSS);
             }
 
@@ -84,5 +75,30 @@ class Endboss extends MovableObject{
                 
             }
         }, 200);
+    }
+
+    moveEndboss(i){
+        if (this.canMove(i)) {
+            this.moveLeft();
+          }
+    }
+
+    canMove(i){
+        return !this.endbossDead && this.hadFirstContact && i > 8 && !this.stopMoving 
+    }
+
+    canSeeBoss(i){
+        return i < 8 && !this.endbossDead;
+    }
+    canMoveBoss(){
+      return  !this.endbossDead && !this.stopMoving
+    }
+
+    canCharacterSeeBoss(){
+        return this.characterPosition && !this.hadFirstContact
+    }
+
+    hitEndBoss(){
+        return this.isHurt()&& !(this.endbossDead)
     }
 }

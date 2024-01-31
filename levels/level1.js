@@ -5,7 +5,8 @@ level1 = new Level(
     [new Chicken(300), new Chicken(600), new Chicken(1000), new Chicken(1500), new Chicken(1900),new Chicken(2200), new Chicken(2500), 
       new Chicken(2700), new Chicken(2900), new Chicken(3200), new Chicken(3500), new Chicken(3700), new Chicken(4000), 
       new Endboss()],
-    [new Cloud()],
+    [new Cloud(100), new Cloud(500), new Cloud(800), new Cloud(1200), new Cloud(1600), new Cloud(2000), new Cloud(2300), new Cloud(2900), new Cloud(3400),
+    new Cloud(3800), new Cloud(4500), new Cloud(4900), new Cloud(5300), new Cloud(5800), new Cloud(6400),],
     [
       new BackgroundObject("img/5_background/layers/air.png", -719, -2),
       new BackgroundObject("img/5_background/layers/3_third_layer/2.png", -719, -2.0),

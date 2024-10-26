@@ -140,7 +140,10 @@ class Character extends MovableObject {
     this.world.sound.walking_sound_pepe.pause();
     resultScreen("looseScreenContainer", "loose");
     this.world.sound.game_over.play();
-    stopGame();
+    setTimeout(() => {
+      this.world.sound.walking_sound_pepe.pause();
+      stopGame();
+    }, 500);
   }
 
   /**

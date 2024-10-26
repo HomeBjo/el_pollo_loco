@@ -141,6 +141,7 @@ h1 {
 .mobileBtN-Mute {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .imGameMute {
   position: relative;
